@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import Checkout from "./pages/Checkout/Checkout";
-
 const App = () => {
   return (
     <>
