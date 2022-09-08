@@ -10,11 +10,10 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 const App = () => {
   return (
     <>
-      {/* <Button variant="contained">Hello World</Button>
+      <Dashboard />
       <SignIn />
       <SignUp />
-      <Checkout /> */}
-      <Dashboard />
+      <Checkout />
     </>
   );
 };
