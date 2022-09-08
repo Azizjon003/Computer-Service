@@ -4,6 +4,9 @@ import Button from "@mui/material/Button";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import Checkout from "./pages/Checkout/Checkout";
+import Chart from "./pages/Dashboard/Chart";
+import Dashboard from "./pages/Dashboard/Dashboard";
+
 const App = () => {
   return (
     <>
@@ -11,6 +14,7 @@ const App = () => {
       <SignIn />
       <SignUp />
       <Checkout />
+      <Dashboard />
     </>
   );
 };
