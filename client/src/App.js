@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import Button from "@mui/material/Button";
 
 import SignIn from "./pages/SignIn/SignIn";
@@ -8,8 +9,11 @@ import Chart from "./pages/Dashboard/Chart";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Learning from "./pages/Leearning/Learning";
 
+
+import Goo from "./routes";
+
 const App = () => {
-  return <></>;
+  return <Goo />;
 };
 
 export default App;
