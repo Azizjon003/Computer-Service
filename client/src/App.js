@@ -6,16 +6,10 @@ import SignUp from "./pages/SignUp/SignUp";
 import Checkout from "./pages/Checkout/Checkout";
 import Chart from "./pages/Dashboard/Chart";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Learning from "./pages/Leearning/Learning";
 
 const App = () => {
-  return (
-    <>
-      <Dashboard />
-      <SignIn />
-      <SignUp />
-      <Checkout />
-    </>
-  );
+  return <></>;
 };
 
 export default App;
