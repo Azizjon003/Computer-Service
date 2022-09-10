@@ -1,14 +1,11 @@
 import NProgress from "nprogress";
 import { useEffect, useMemo } from "react";
-// @mui
-import { useTheme } from "@mui/material/styles";
+// @muiimport { useTheme } from "@mui/material/styles";
 import { GlobalStyles } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
 export function ProgressBarStyle() {
-  const theme = useTheme();
-
   return (
     <GlobalStyles
       styles={{
@@ -20,9 +17,6 @@ export function ProgressBarStyle() {
             height: 2,
             width: "100%",
             position: "fixed",
-            zIndex: theme.zIndex.snackbar,
-            backgroundColor: theme.palette.primary.main,
-            boxShadow: `0 0 2px ${theme.palette.primary.main}`,
           },
           "& .peg": {
             right: 0,
@@ -32,7 +26,6 @@ export function ProgressBarStyle() {
             display: "block",
             position: "absolute",
             transform: "rotate(3deg) translate(0px, -4px)",
-            boxShadow: `0 0 10px ${theme.palette.primary.main}, 0 0 5px ${theme.palette.primary.main}`,
           },
         },
       }}
