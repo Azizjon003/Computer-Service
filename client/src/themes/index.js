@@ -16,13 +16,14 @@ ThemeProvider.propTypes = {
 };
 
 export default function ThemeProvider({ children }) {
-  const themeOptions = useMemo(() => ({
+  const themeOptions = {
     palette: {
       primary: { main: "#f3f3f3" },
     },
     breakpoints,
     shape: { borderRadius: 8 },
-  }));
+  };
+
   const theme = createTheme(themeOptions);
 
   return (
