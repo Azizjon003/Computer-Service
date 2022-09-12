@@ -17,7 +17,18 @@ ThemeProvider.propTypes = {
 export default function ThemeProvider({ children }) {
   const themeOptions = {
     palette: {
-      primary: { main: "#f3f3f3" },
+      primary: {
+        main: "#feeafa",
+      },
+      secondary: {
+        main: "#8e9aaf",
+      },
+      otherColor: {
+        main: "#567",
+      },
+      red: {
+        main: "red",
+      },
     },
     breakpoints,
     shape: { borderRadius: 8 },
