@@ -23,12 +23,6 @@ export default function ThemeProvider({ children }) {
       secondary: {
         main: "#8e9aaf",
       },
-      otherColor: {
-        main: "#567",
-      },
-      red: {
-        main: "red",
-      },
     },
     breakpoints,
     shape: { borderRadius: 8 },
