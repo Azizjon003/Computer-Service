@@ -12,7 +12,7 @@ const MainLayout = () => {
   return (
     <>
       <Header />
-      <Main>Main Layout</Main>;
+      <Main>Main Layout</Main>
       <Footer />
     </>
   );
