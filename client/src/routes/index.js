@@ -4,7 +4,11 @@ import { Navigate, useRoutes } from "react-router-dom";
 import MainLayout from "../layouts/main";
 // components
 import LoadingScreen from "../components/LoadingScreen";
+// Vacancy
+import Vacancy from "../components/Vacancy/Vacancy";
 
+import VacancyId from '../components/Vacancy/VacancyId/Vacancyid'
+import Vacancyid from "../components/Vacancy/VacancyId/Vacancyid";
 const Loadable = (Component) => (props) =>
   (
     <Suspense fallback={<LoadingScreen isDashboard={false} />}>
@@ -31,6 +35,16 @@ export default function Goo() {
       path: "/",
       element: <MainLayout />,
       children: [{ element: <HomePage />, index: true }],
+    },
+    {
+      path: "/vacancy",
+      element: <Vacancy />,
+      children: [{ element: <Vacancy />, index: true }],
+    },
+    {
+      path: "/vacancyid",
+      element: <Vacancyid />,
+      children: [{ element: <Vacancyid />, index: true }],
     },
     // { path: "*", element: <Navigate to="/404" replace /> },
   ]);
