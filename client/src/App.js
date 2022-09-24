@@ -5,6 +5,7 @@ import NavbarApp from "./components/headerApp/NavbarApp";
 import SidebarApp from "./components/sidebarApp/SidebarApp";
 import { categoryLink } from "./components/sidebarApp/SidebarData";
 import ThemeProvider from "./themes";
+import ServiceCotolog from "./components/serviceCotolog/ServiceCotolog";
 // console.log(categoryLink);
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <HeaderApp />
       <NavbarApp />
       <Route />
+      <ServiceCotolog />
     </ThemeProvider>
     // <h1></h1>
   );
