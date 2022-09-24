@@ -5,7 +5,7 @@ import NavbarApp from "./components/headerApp/NavbarApp";
 import SidebarApp from "./components/sidebarApp/SidebarApp";
 import { categoryLink } from "./components/sidebarApp/SidebarData";
 import ThemeProvider from "./themes";
-// console.log(categoryLink);
+
 const App = () => {
   return (
     <ThemeProvider>
@@ -13,7 +13,6 @@ const App = () => {
       <NavbarApp />
       <Route />
     </ThemeProvider>
-    // <h1></h1>
   );
 };
 
