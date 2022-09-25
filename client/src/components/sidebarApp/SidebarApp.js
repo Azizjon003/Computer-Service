@@ -81,13 +81,23 @@ export default function SidebarApp() {
                   </Typography>
                   {text.categoryChap.map((item, i) => {
                     return (
-                      <ListItemButton key={i}>
+                      <ListItemButton
+                        key={i}
+                        sx={{
+                          marginX: 6,
+                          background: indexData === item.id ? "blue" : "none",
+                          borderRadius: 5,
+                          color: indexData === item.id ? "#fff" : "black",
+                          ":hover": {
+                            background: "blue",
+                          },
+                        }}
+                      >
                         <ListItemText
                           primary={
                             <Typography
                               component="div"
                               variant="p"
-                              sx={{ marginX: 6 }}
                               onMouseEnter={(e) =>
                                 dispatch(editDataIndex(item.id))
                               }
@@ -112,38 +122,55 @@ export default function SidebarApp() {
             {categoryLink.map((category, indexC) => {
               return category.categoryChap.map((category2, indexC2) => {
                 return (
-                  <Box key={indexC2} className="sidebar-grid-card">
+                  <Box key={indexC2} className="sidebar-grid-card"
+                  sx={{display: category2.id > 20 & 'block'}}
+                  >
                     {category2.id === indexData &&
                       category2.nameCategory &&
                       category2.nameCategory.map((category3, indexC3) => {
-                        return <Box>
-                        <Typography key={indexC3}
-                        
-                        component='div'
-                        variant="h6"
-                        >{category3.nameLink}</Typography>
-                        {category3.services && category3.services.map(( category4, indexC ) => { return (
-                          <><Typography key={indexC}
-                          
-                          component='div'
-                          variant="h5"
-                          sx={{marginY: 2}}
-                          >
-                            {category4.servicesName}
-                          </Typography>
-                          {category4.servicesLink.map((category5, indexC5) => {return (
-
-                          <Typography key={indexC5}
-                          component='div'
-                          variant="p"
-                          sx={{marginY: 1, color: 'rgb(8, 10, 155)'}}
-                          >
-                           {category5.nameLinkDepartment}
-                          </Typography>
-                          )})}
-                          </>
-                        )})}
-                        </Box> 
+                        return (
+                          <Box>
+                            <Typography
+                              key={indexC3}
+                              component="div"
+                              variant="h6"
+                            >
+                              {category3.nameLink}
+                            </Typography>
+                            {category3.services &&
+                              category3.services.map((category4, indexC) => {
+                                return (
+                                  <>
+                                    <Typography
+                                      key={indexC}
+                                      component="div"
+                                      variant="h5"
+                                      sx={{ marginY: 2 }}
+                                    >
+                                      {category4.servicesName}
+                                    </Typography>
+                                    {category4.servicesLink.map(
+                                      (category5, indexC5) => {
+                                        return (
+                                          <Typography
+                                            key={indexC5}
+                                            component="div"
+                                            variant="p"
+                                            sx={{
+                                              marginY: 1,
+                                              color: "rgb(8, 10, 155)",
+                                            }}
+                                          >
+                                            {category5.nameLinkDepartment}
+                                          </Typography>
+                                        );
+                                      }
+                                    )}
+                                  </>
+                                );
+                              })}
+                          </Box>
+                        );
                       })}
                   </Box>
                 );
