@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import CheckIcon from "@mui/icons-material/Check";
 import { Stack } from "@mui/system";
 import { styled } from "@mui/system";
+import {Container} from "@mui/system";
+import './VacancyId.css'
 
 // Icons
 import StarIcon from "@mui/icons-material/Star";
@@ -53,9 +55,13 @@ function Vacancyid(props) {
           position: "relative",
         }}
       >
-        <Grid container alignItems="center">
-          <Grid item lg="7" md="7" sm={7} className="texts" mt={13}>
-            <h1
+        <Container className='container' sx={{
+          display : 'flex',
+          alignItems : 'center',
+          justifyContent: 'space-between'
+        }}>
+        <Grid item lg="7" md="5" sm='12' className="texts" mt={13}>
+            <h1 className="title"
               style={{
                 fontSize: "30px",
                 lineHeight: "116%",
@@ -71,7 +77,7 @@ function Vacancyid(props) {
               >
                 Ташкент
               </span>{" "}
-              Работа <br /> мастер по <br /> ремонту  ноутбуков
+              Работа  мастер по <br /> ремонту  ноутбуков
             </h1>
             <h4
               style={{
@@ -86,7 +92,7 @@ function Vacancyid(props) {
               Cтань сотрудником <br /> OUR-service
               <br /> уже сегодня
             </h4>
-            <Stack class direction="row" sx={{ marginBottom: "20px" }}>
+            <Stack  direction="row" sx={{ marginBottom: "20px" , justifyContent : 'center'  }}>
               <Button
                 variant="contained"
                 sx={{
@@ -106,10 +112,11 @@ function Vacancyid(props) {
                 Call us
               </Button>
             </Stack>
-            <Stack spacing={3}  mt={5}
-                direction = {{sm : 'column' , lg : 'row' , md : 'row'}}
+            <Stack  spacing={3}  mt={5}
+                direction='row'
+                className='have'
             >
-              <Stack
+              <Stack className='wehave'
                 spacing={1}
                 direction="row"
                 sx={{
@@ -119,7 +126,7 @@ function Vacancyid(props) {
                 <CheckIcon sx={{ color: "#64b5f6" }}></CheckIcon>
                 Стабильная <br /> зарплата
               </Stack>
-              <Stack
+              <Stack className='wehave'
                 spacing={1}
                 direction="row"
                 sx={{
@@ -129,7 +136,7 @@ function Vacancyid(props) {
                 <CheckIcon sx={{ color: "#64b5f6" }}></CheckIcon>
                 Стабильная <br /> зарплата
               </Stack>
-              <Stack
+              <Stack className='wehave'
                 spacing={1}
                 direction="row"
                 sx={{
@@ -141,32 +148,21 @@ function Vacancyid(props) {
               </Stack>
             </Stack>
           </Grid>
-          <Grid item lg="5" md="5" sm={5}>
+          <Grid className="myimg" item lg="5" md="5" sm='12'>
             <Myimg src="https://avatars.mds.yandex.net/i?id=71f23064964256c2069e5d456efb8c5f-5234007-images-thumbs&n=13"></Myimg>
           </Grid>
-          <Grid
-            item
-            lg="12"
-            textAlign="center"
-            sx={{
-              position: "absolute",
-              left: "0",
-              right: "0",
-              margin: "0 auto",
-              bottom: "-50px",
-            }}
-          ></Grid>
-        </Grid>
+        </Container>
       </div>
-      <section>
+      <section >
         <div className="jobs">
+          <Container>
           <Grid
             container
             sx={{
               justifyContent: "space-between",
             }}
           >
-            <Grid item lg={5} md={5} sm={5}>
+            <Grid className="about__company" item lg={5} md={5} sm='12'>
               <AboutCompany>
                 <h3>Oracle Fusion Technical Reporting Consultant</h3>
 
@@ -192,7 +188,7 @@ function Vacancyid(props) {
                   <p>Noida, Hyderabad/Secunderabad, Pune, Chennai,</p>
                 </Boxabout>
               </AboutCompany>
-              <Title>Other Jobs</Title>
+              <Title className="other__jobs">Other Jobs</Title>
               <AboutCompany>
                 <h3>Oracle Fusion Technical Reporting Consultant</h3>
 
@@ -244,9 +240,9 @@ function Vacancyid(props) {
                 </Boxabout>
               </AboutCompany>
             </Grid>
-            <Grid item lg={6} md={6} sm={6}>
+            <Grid item lg={6} md={6} sm='12'>
               <Allthingcompany>
-                <Box__title>Job Responsibilities:</Box__title>
+                <Box__title className="title">Job Responsibilities:</Box__title>
                 <p>
                   The main role of this Support engineer is to troubleshoot and
                   resolve highly complex technical problems. The key skills put
@@ -254,7 +250,7 @@ function Vacancyid(props) {
                   some functional skills Oracle products knowledge, problem
                   solving skills, and customer interaction/service expertise.
                 </p>
-                <Box__title>Job Responsibilities:</Box__title>
+                <Box__title className="title">Job Responsibilities:</Box__title>
                 <p>
                   The main role of this Support engineer is to troubleshoot and
                   resolve highly complex technical problems. The key skills put
@@ -262,7 +258,7 @@ function Vacancyid(props) {
                   some functional skills Oracle products knowledge, problem
                   solving skills, and customer interaction/service expertise.
                 </p>
-                <Box__title>Job Responsibilities:</Box__title>
+                <Box__title className="title">Job Responsibilities:</Box__title>
                 <p>
                   The main role of this Support engineer is to troubleshoot and
                   resolve highly complex technical problems. The key skills put
@@ -270,7 +266,7 @@ function Vacancyid(props) {
                   some functional skills Oracle products knowledge, problem
                   solving skills, and customer interaction/service expertise.
                 </p>
-                <Box__title>Job Responsibilities:</Box__title>
+                <Box__title className="title">Job Responsibilities:</Box__title>
                 <p>
                   The main role of this Support engineer is to troubleshoot and
                   resolve highly complex technical problems. The key skills put
@@ -281,6 +277,8 @@ function Vacancyid(props) {
               </Allthingcompany>
             </Grid>
           </Grid>
+          </Container>
+          
         </div>
       </section>
     </div>

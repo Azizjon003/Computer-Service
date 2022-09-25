@@ -8,6 +8,9 @@ import { borderRadius, Stack, ThemeProvider } from "@mui/system";
 import { styled } from "@mui/system";
 import Vacancyid from "./VacancyId/Vacancyid";
 import { Link } from "react-router-dom";
+import {Container} from "@mui/system";
+
+import './Vacancy.css'
 
 // Icons
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -95,6 +98,8 @@ function Vacancy(props) {
 
   return (
     <ThemeProvider theme={breakpoints}>
+    <Container>
+
     <div>
       <div
         className="hero_section"
@@ -109,7 +114,7 @@ function Vacancy(props) {
             <Myimg src="https://office-business.ru/images/image/abs.png"></Myimg>
           </Grid>
           <Grid item lg="7" md={7} sm={7} className="texts" mt={13}>
-            <MainTitle>
+            <MainTitle className="main__title">
               <span
                 style={{
                   color: "#00aeef",
@@ -119,7 +124,7 @@ function Vacancy(props) {
               </span>{" "}
               Ташкент <br /> Там, где всегда есть работа!
             </MainTitle>
-            <LittleTitle>
+            <LittleTitle className='lt__title'>
               {" "}
               Ищешь работу? Cтань сотрудником <br /> Our-service уже завтра.
             </LittleTitle>
@@ -151,10 +156,10 @@ function Vacancy(props) {
               sx={{
                 paddingBottom: "70px",
               }}
-              direction = {{sm : 'column' , lg : 'row' , md : 'row'}}
+              direction = 'row'
               
             >
-              <Stack
+              <Stack className="have"
                 spacing={1}
                 direction="row"
                 sx={{
@@ -164,7 +169,7 @@ function Vacancy(props) {
                 <CheckIcon sx={{ color: "#64b5f6" }}></CheckIcon>
                 Стабильная <br /> зарплата
               </Stack>
-              <Stack
+              <Stack  className="have"
                 spacing={1}
                 direction="row"
                 sx={{
@@ -174,7 +179,7 @@ function Vacancy(props) {
                 <CheckIcon sx={{ color: "#64b5f6" }}></CheckIcon>
                 Стабильная <br /> зарплата
               </Stack>
-              <Stack
+              <Stack  className="have"
                 spacing={1}
                 direction="row"
                 sx={{
@@ -216,7 +221,7 @@ function Vacancy(props) {
               justifyContent: "center",
             }}
           >
-            <Grid item lg={3} sm={12}>
+            <Grid item lg={3} md={6} sm={12}>
               <Box>
                 <GroupIcon
                   style={{
@@ -229,7 +234,7 @@ function Vacancy(props) {
                 </Box__p>
               </Box>
             </Grid>
-            <Grid item lg={3} sm={12}>
+            <Grid item lg={3}  md={6} sm={12}>
               <Box>
                 <GroupIcon
                   style={{
@@ -240,7 +245,7 @@ function Vacancy(props) {
                 <Box__p>Have a 4 vacancies</Box__p>
               </Box>
             </Grid>
-            <Grid item lg={3} sm={12}>
+            <Grid item lg={3}  md={6} sm={12}>
               <Box>
                 <GroupIcon
                   style={{
@@ -251,7 +256,7 @@ function Vacancy(props) {
                 <Box__p>Have a 4 vacancies</Box__p>
               </Box>
             </Grid>
-            <Grid item lg={3} sm={12}>
+            <Grid item lg={3}  md={6} sm={12}>
               <Box>
                 <GroupIcon
                   style={{
@@ -265,10 +270,10 @@ function Vacancy(props) {
           </Grid>
         </div>
         <div className="location">
-          <Title>Наши контакты</Title>
-          <Grid container alignItems="center">
-            <Grid item lg={5} md={5} sm={12}>
-              <Box__title>
+          <Title className="main__title">Наши контакты</Title>
+          <Grid container alignItems="center" >
+            <Grid item lg={5} md={5} sm='12' className="location__text">
+              <Box__title className="main__title">
                 Ташкент, Олмазор <br /> микрорайон, 8/1
               </Box__title>
               <Box__p>
@@ -303,6 +308,7 @@ function Vacancy(props) {
         </div>
       </section>
     </div>
+    </Container>
     </ThemeProvider>
   );
 }
