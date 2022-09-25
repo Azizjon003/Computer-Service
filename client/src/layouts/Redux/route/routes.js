@@ -6,13 +6,13 @@ import NotFound from "../containers/NotFound/NotFound";
 const Routess = () => {
   return (
     <div>
-      <Router>
+      {/* <Router> */}
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="/product/:productId" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Router>
+      {/* </Router> */}
     </div>
   );
 };

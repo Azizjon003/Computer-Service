@@ -1,19 +1,19 @@
-const Worker = require("../models/workersModel");
-const Review = require("../models/reviewsModel");
+const ReviewCategory = require("../models/reviewsCategory");
+const User = require("../models/userModel");
 
 const getAll = async (req, res) => {
   try {
-    const worker = await Worker.findAll({
+    const reviewsCategory = await ReviewCategory.findAll({
       include: [
         {
-          model: Review,
+          model: User,
         },
       ],
     });
 
     res.status(200).json({
-      datas: worker.length,
-      data: worker,
+      datas: reviewsCategory.length,
+      data: reviewsCategory,
     });
   } catch (error) {
     console.log(error.message);
@@ -22,9 +22,9 @@ const getAll = async (req, res) => {
 
 const add = async (req, res) => {
   try {
-    const worker = await Worker.create(req.body);
+    const reviewsCategory = await ReviewCategory.create(req.body);
     res.status(200).json({
-      data: worker,
+      data: reviewsCategory,
     });
   } catch (error) {
     console.log(error.message);
@@ -33,7 +33,7 @@ const add = async (req, res) => {
 
 const delete1 = async (req, res) => {
   try {
-    await Worker.destroy({ where: { id: req.params.id } });
+    await ReviewCategory.destroy({ where: { id: req.params.id } });
     res.status(200).json({
       data: "success",
     });
@@ -43,7 +43,7 @@ const delete1 = async (req, res) => {
 };
 const getOne = async (req, res) => {
   try {
-    const worker = await Worker.findOne({
+    const reviewsCategory = await ReviewCategory.findOne({
       where: { id: req.params.id },
       include: [
         {
@@ -52,25 +52,7 @@ const getOne = async (req, res) => {
       ],
     });
     res.status(200).json({
-      data: worker,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
-const update = async (req, res) => {
-  try {
-    const worker = await Worker.findOne({
-      where: { id: req.params.id },
-    });
-
-    worker.status = req.body.status || worker.status;
-
-    const newWorker = await worker.save();
-
-    res.status(200).json({
-      data: newWorker,
+      data: reviewsCategory,
     });
   } catch (error) {
     console.log(error.message);
@@ -82,5 +64,4 @@ module.exports = {
   getAll,
   delete1,
   getOne,
-  update,
 };

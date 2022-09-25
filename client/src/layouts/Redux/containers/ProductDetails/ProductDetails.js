@@ -2,12 +2,20 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD
 import {
   countDecProduct,
   countIncProduct,
   selectedProduct,
 } from "../../redux/action/productAction";
 import { Button, Container, Typography } from "@mui/material";
+=======
+import { selectedProduct } from "../../redux/action/productAction";
+import { Button, Card, Container, Typography } from "@mui/material";
+import { settings } from "./sliderSettings";
+import Slider from "react-slick";
+
+>>>>>>> da16cb32e023618ec38fde708ba7687bc92bded6
 import {
   Percent,
   ProductDescription,
