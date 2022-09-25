@@ -1,3 +1,4 @@
+const ReviewForWorkers = require("../models/reviewForWorkersModel");
 const SubmitVacancy = require("../models/submitVacancyModel");
 const User = require("../models/userModel");
 
@@ -9,6 +10,9 @@ const getAll = async (req, res) => {
       include: [
         {
           model: SubmitVacancy,
+        },
+        {
+          model: ReviewForWorkers,
         },
         // {
         //   model: Vacancy,

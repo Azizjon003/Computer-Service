@@ -1,5 +1,6 @@
 const Worker = require("../models/workersModel");
 const ServiceType = require("../models/serviseTypesModel");
+const ReviewForWorkers = require("../models/reviewForWorkersModel");
 
 const getAll = async (req, res) => {
   try {
@@ -7,6 +8,9 @@ const getAll = async (req, res) => {
       include: [
         {
           model: ServiceType,
+        },
+        {
+          model: ReviewForWorkers,
         },
       ],
     });
@@ -48,6 +52,9 @@ const getOne = async (req, res) => {
       include: [
         {
           model: ServiceType,
+        },
+        {
+          model: ReviewForWorkers,
         },
       ],
     });

@@ -15,10 +15,10 @@ const ReviewForWorkers = sequelize.define("reviewWorkers", {
 });
 
 User.hasMany(ReviewForWorkers, { onDelete: "CASCADE" });
-ReviewForWorkers.hasMany(User, { onDelete: "CASCADE" });
+ReviewForWorkers.belongsTo(User, { onDelete: "CASCADE" });
 
 Worker.hasMany(ReviewForWorkers, { onDelete: "CASCADE" });
-ReviewForWorkers.hasMany(Worker, { onDelete: "CASCADE" });
+ReviewForWorkers.belongsTo(Worker, { onDelete: "CASCADE" });
 
 ReviewForWorkers.sync({ alter: true });
 

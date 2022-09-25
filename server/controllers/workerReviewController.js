@@ -1,5 +1,7 @@
 const Worker = require("../models/workersModel");
+
 const WorkerReview = require("../models/reviewForWorkersModel");
+const User = require("../models/userModel");
 
 const getAll = async (req, res) => {
   try {
@@ -7,6 +9,9 @@ const getAll = async (req, res) => {
       include: [
         {
           model: Worker,
+        },
+        {
+          model: User,
         },
       ],
     });
@@ -49,29 +54,13 @@ const getOne = async (req, res) => {
         {
           model: Worker,
         },
+        {
+          model: User,
+        },
       ],
     });
     res.status(200).json({
       data: workerReview,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
-const update = async (req, res) => {
-  try {
-    const workerReview = await WorkerReview.findOne({
-      where: { id: req.params.id },
-    });
-
-    workerReview.body = req.body.body || workerReview.body;
-    workerReview.rating = req.body.rating || workerReview.rating;
-
-    const newWorkerReview = await workerReview.save();
-
-    res.status(200).json({
-      data: newWorkerReview,
     });
   } catch (error) {
     console.log(error.message);
@@ -83,5 +72,4 @@ module.exports = {
   getAll,
   delete1,
   getOne,
-  update,
 };
