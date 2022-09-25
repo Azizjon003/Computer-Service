@@ -192,6 +192,7 @@ export default function SidebarApp() {
               display: indexData > 26 ? "none" : "block",
               flexGrow: 1,
               bgcolor: "background.default",
+              marginLeft: indexData > 26 && -20,
               p: 1,
             }}
           >

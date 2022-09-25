@@ -10,12 +10,6 @@ b {
 .sidebar-phone-catalog-card{
     display: none;
 }
-/* .sidebar-drawer{
-   min-width: 200%;
-    flex-shrink: 0;
-    box-sizing: border-box;
-} */
-
 .sidebar-grid-card {
   /* width: 500px; */
   display: grid;
