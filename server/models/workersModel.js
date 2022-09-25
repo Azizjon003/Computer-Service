@@ -1,4 +1,5 @@
 const sequelize = require("../configs/db");
+const Review = require("../models/reviewsModel");
 
 const { DataTypes, Sequelize } = require("sequelize");
 
@@ -14,7 +15,6 @@ const Workers = sequelize.define("workers", {
   phone: { type: DataTypes.STRING, allowNull: false },
   status: { type: DataTypes.INTEGER, allowNull: false },
   experience: { type: DataTypes.STRING, allowNull: false },
-  review_id: { type: DataTypes.STRING, allowNull: false }, // boshqa table
 });
 
 module.exports = Workers;

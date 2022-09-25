@@ -1,4 +1,5 @@
 const sequelize = require("../configs/db");
+const User = require("../models/userModel");
 
 const { DataTypes, Sequelize } = require("sequelize");
 
@@ -10,7 +11,9 @@ const Reviews = sequelize.define("reviews", {
   },
   body: { type: DataTypes.STRING, allowNull: false },
   rating: { type: DataTypes.INTEGER, allowNull: false },
-  user_id: { type: DataTypes.STRING, allowNull: false }, //boshqa table
 });
+
+User.hasOne(Reviews, { onDelete: "CASCADE" });
+Reviews.belongsTo(User, { onDelete: "CASCADE" });
 
 module.exports = Reviews;
