@@ -216,7 +216,7 @@ function Vacancy(props) {
           <Title>МАСТЕРА ИНЖЕНЕРЫ</Title>
           <Grid
             container
-            sx={{D
+            sx={{
               marginTop: "70px",
               justifyContent: "center",
             }}
