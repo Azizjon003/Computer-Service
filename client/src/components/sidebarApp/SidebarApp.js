@@ -21,7 +21,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { useDispatch, useSelector } from "react-redux";
 import { editDataIndex } from "../redux/testsSlice";
-
+import './sidebarApp.css'
 const drawerWidth = 240;
 
 export default function SidebarApp() {
