@@ -13,3 +13,17 @@ export const selectedProduct = (product) => {
     payload: product,
   };
 };
+
+export const countIncProduct = (value) => {
+  return {
+    type: Actiontype.INCREMENT_PRODUCTS,
+    payload: value,
+  };
+};
+
+export const countDecProduct = (value) => {
+  return {
+    type: Actiontype.DECREMENT_PRODUCTS,
+    payload: value,
+  };
+};
