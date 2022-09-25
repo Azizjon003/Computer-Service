@@ -4,6 +4,7 @@ import HeaderApp from "./components/headerApp/HeaderApp";
 import NavbarApp from "./components/headerApp/NavbarApp";
 import SidebarApp from "./components/sidebarApp/SidebarApp";
 import { categoryLink } from "./components/sidebarApp/SidebarData";
+import ServiceCotolog from "./components/serviceCotolog/ServiceCotolog";
 import ThemeProvider from "./themes";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <HeaderApp />
       <NavbarApp />
       <Route />
+      <ServiceCotolog />
     </ThemeProvider>
   );
 };
