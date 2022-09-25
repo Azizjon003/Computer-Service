@@ -3,23 +3,24 @@ b{
 }
 
 .sidebar-grid-card{
+    width: 800px;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 250px 250px 250px;
     grid-gap: 50px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 
 @media only screen and (max-width: 600px) {
     
 .sidebar-grid-card{
-    grid-template-columns: auto;
+    grid-template-columns: 250px;
 }
   }
   @media only screen and (min-width: 600px) {
     
 .sidebar-grid-card{
-    grid-template-columns: auto auto ;
+    grid-template-columns: 250px 250px ;
 }
   }
   @media only screen and (min-width: 768px) {
@@ -28,7 +29,7 @@ b{
 
 @media only screen and (min-width: 992px) {
       .sidebar-grid-card{
-          grid-template-columns: auto auto auto;
+          grid-template-columns: 250px 250px 250px;
       }
 
   }  
