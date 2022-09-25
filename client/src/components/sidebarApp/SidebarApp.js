@@ -123,16 +123,24 @@ export default function SidebarApp() {
               return category.categoryChap.map((category2, indexC2) => {
                 return (
                   <Box key={indexC2} className="sidebar-grid-card"
+                    // sx={{ display: 'grid', gridTemplateColumns:'250px', bgcolor: category2.id>20&& 'blue'}}
                   >
                     {category2.id === indexData &&
                       category2.nameCategory &&
                       category2.nameCategory.map((category3, indexC3) => {
                         return (
-                          <Box>
+                          <Box
+                          
+                          >
                             <Typography
                               key={indexC3}
                               component="div"
                               variant="h6"
+                              
+                              sx={{
+                                marginY: 1,
+                                color: "rgb(8, 10, 155)",
+                              }}
                             >
                               {category3.nameLink}
                             </Typography>
@@ -157,7 +165,11 @@ export default function SidebarApp() {
                                             variant="p"
                                             sx={{
                                               marginY: 1,
-                                              color: "rgb(8, 10, 155)",
+                                              color: "rgb(0, 10, 0, 0.5)",
+                                              ":hover": {
+                                                
+                                              color: "blue",
+                                              }
                                             }}
                                           >
                                             {category5.nameLinkDepartment}
