@@ -28,7 +28,8 @@ export default function SidebarAppPhone({ data, i }) {
       <ListItemButton
         sx={{
           backgroundColor: open && data.id < 27 && "blue",
-
+          color:
+            open && data.id < 27 ? "#fff" : data.id > 26 ? "blue" : "black",
           borderRadius: 4,
           ":hover": {
             backgroundColor: open && data.id < 27 && "blue",
@@ -38,8 +39,9 @@ export default function SidebarAppPhone({ data, i }) {
       >
         <ListItemText
           sx={{
-            color: data.id > 26 ? "blue" : "black",
             marginX: data.id > 26 ? "40px" : "0",
+            color:
+              open && data.id < 27 ? "#fff" : data.id > 26 ? "blue" : "black",
           }}
           primary={data && data.name}
         />
