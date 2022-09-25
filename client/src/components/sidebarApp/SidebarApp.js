@@ -86,6 +86,7 @@ export default function SidebarApp() {
                         right: 0,
                         color: "red",
                       }}
+                      onClick={toggleDrawer(anchor, false)}
                     >
                       <Clear />
                     </IconButton>
@@ -136,11 +137,12 @@ export default function SidebarApp() {
                         right: 0,
                         color: "red",
                       }}
+                      onClick={toggleDrawer(anchor, false)}
                     >
                       <Clear />
                     </IconButton>
                   )}
-                 
+
                   {text.categoryChap.map((item, i) => {
                     return (
                       <>
