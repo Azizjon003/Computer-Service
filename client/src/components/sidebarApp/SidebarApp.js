@@ -11,7 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Typography } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import { categoryLink } from "./SidebarData";
 // import SidebarCategory from "./SidebarCategory";
 import { useState } from "react";
@@ -21,7 +21,9 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { useDispatch, useSelector } from "react-redux";
 import { editDataIndex } from "../redux/testsSlice";
-import './sidebarApp.css'
+import "./sidebarApp.css";
+import SidebarAppPhone from "./SidebarAppPhone";
+import { Clear } from "@mui/icons-material";
 const drawerWidth = 240;
 
 export default function SidebarApp() {
@@ -45,20 +47,67 @@ export default function SidebarApp() {
   };
 
   const list = (anchor) => (
-    <Box
-      sx={{ paddingX: "50px" }}
-      role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
-    >
+    <Box sx={{ paddingX: indexData < 27 ? "60px" : "0" }} role="presentation">
       <Divider />
       <List>
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
           <Drawer
+            className="sidebar-drawer "
             sx={{
-              width: 400,
               flexShrink: 0,
+              width: "100%",
+              display: { xs: "block", sm: "none" },
+              "& .MuiDrawer-paper": {
+                width: "100%",
+                boxSizing: "border-box",
+              },
+            }}
+            variant="permanent"
+            anchor="left"
+          >
+            <Toolbar />
+            <Divider />
+            <List>
+              {categoryLink.map((text, textI) => (
+                <ListItem key={text} disablePadding sx={{ display: "block" }}>
+                  <Typography
+                    component="div"
+                    variant="h5"
+                    sx={{ textAlign: "center", marginY: 2 }}
+                  >
+                    {text.nameChap}
+                  </Typography>
+                  {textI === 0 && (
+                    <IconButton
+                      sx={{
+                        position: "absolute",
+                        top: -20,
+                        right: 0,
+                        color: "red",
+                      }}
+                    >
+                      <Clear />
+                    </IconButton>
+                  )}
+                  {text.categoryChap.map((item, i) => {
+                    return (
+                      <>
+                        <SidebarAppPhone data={item} i={i} />
+                      </>
+                    );
+                  })}
+                </ListItem>
+              ))}
+            </List>
+            <Divider />
+          </Drawer>
+
+          <Drawer
+            sx={{
+              flexShrink: 0,
+              width: 400,
+              display: { xs: "none", sm: "block" },
               "& .MuiDrawer-paper": {
                 width: 400,
                 boxSizing: "border-box",
@@ -70,7 +119,7 @@ export default function SidebarApp() {
             <Toolbar />
             <Divider />
             <List>
-              {categoryLink.map((text) => (
+              {categoryLink.map((text, textI) => (
                 <ListItem key={text} disablePadding sx={{ display: "block" }}>
                   <Typography
                     component="div"
@@ -79,34 +128,54 @@ export default function SidebarApp() {
                   >
                     {text.nameChap}
                   </Typography>
+                  {textI === 0 && (
+                    <IconButton
+                      sx={{
+                        position: "absolute",
+                        top: -20,
+                        right: 0,
+                        color: "red",
+                      }}
+                    >
+                      <Clear />
+                    </IconButton>
+                  )}
+                 
                   {text.categoryChap.map((item, i) => {
                     return (
-                      <ListItemButton
-                        key={i}
-                        onMouseEnter={(e) =>
-                          dispatch(editDataIndex(item.id))
-                        }
-                        sx={{
-                          marginX: 6,
-                          background: indexData === item.id ? "blue" : "none",
-                          borderRadius: 5,
-                          color: indexData === item.id ? "#fff" : "black",
-                          ":hover": {
-                            background: "blue",
-                          },
-                        }}
-                      >
-                        <ListItemText
-                          primary={
-                            <Typography
-                              component="div"
-                              variant="p"
-                            >
-                              {item.name}
-                            </Typography>
-                          }
-                        />
-                      </ListItemButton>
+                      <>
+                        <ListItemButton
+                          className="sidebar-catalog-card"
+                          key={i}
+                          onMouseEnter={(e) => dispatch(editDataIndex(item.id))}
+                          sx={{
+                            display: "block",
+                            marginX: 6,
+                            background:
+                              indexData === item.id && item.id < 27
+                                ? "blue"
+                                : "none",
+                            borderRadius: 5,
+                            color:
+                              indexData === item.id && item.id < 27
+                                ? "#fff"
+                                : item.id > 26
+                                ? "blue"
+                                : "black",
+                            ":hover": {
+                              background: item.id < 27 ? "blue" : "none",
+                            },
+                          }}
+                        >
+                          <ListItemText
+                            primary={
+                              <Typography component="div" variant="p">
+                                {item.name}
+                              </Typography>
+                            }
+                          />
+                        </ListItemButton>
+                      </>
                     );
                   })}
                 </ListItem>
@@ -116,34 +185,33 @@ export default function SidebarApp() {
           </Drawer>
           <Box
             component="main"
-            sx={{ flexGrow: 1, bgcolor: "background.default", p: 1, }}
+            className="sidebar-category-card"
+            sx={{
+              display: indexData > 26 ? "none" : "block",
+              flexGrow: 1,
+              bgcolor: "background.default",
+              p: 1,
+            }}
           >
             <Toolbar />
             {categoryLink.map((category, indexC) => {
               return category.categoryChap.map((category2, indexC2) => {
                 return (
-                  <Box key={indexC2} className="sidebar-grid-card"
-                    // sx={{ display: 'grid', gridTemplateColumns:'250px', bgcolor: category2.id>20&& 'blue'}}
-                  >
+                  <Box key={indexC2} className="sidebar-grid-card">
                     {category2.id === indexData &&
                       category2.nameCategory &&
                       category2.nameCategory.map((category3, indexC3) => {
                         return (
-                          <Box
-                          
-                          >
-                            <Typography
+                          <Box>
+                            <ListItemButton
                               key={indexC3}
-                              component="div"
-                              variant="h6"
-                              
                               sx={{
                                 marginY: 1,
                                 color: "rgb(8, 10, 155)",
                               }}
                             >
                               {category3.nameLink}
-                            </Typography>
+                            </ListItemButton>
                             {category3.services &&
                               category3.services.map((category4, indexC) => {
                                 return (
@@ -151,36 +219,33 @@ export default function SidebarApp() {
                                     <Typography
                                       key={indexC}
                                       component="div"
-                                      variant="h5"
-                                      sx={{ marginY: 2 }}
+                                      variant="h6"
+                                      sx={{ margin: 2 }}
                                     >
                                       {category4.servicesName}
                                     </Typography>
                                     {category4.servicesLink.map(
                                       (category5, indexC5) => {
                                         return (
-                                          <Typography
+                                          <ListItemButton
                                             key={indexC5}
-                                            component="div"
-                                            variant="p"
                                             sx={{
-                                              marginY: 1,
+                                              borderRadius: 5,
                                               color: "rgb(0, 10, 0, 0.5)",
                                               ":hover": {
-                                                
-                                              color: "blue",
-                                              }
+                                                color: "blue",
+                                              },
                                             }}
                                           >
                                             {category5.nameLinkDepartment}
-                                          </Typography>
+                                          </ListItemButton>
                                         );
                                       }
                                     )}
                                   </>
                                 );
                               })}
-                              <Divider/>
+                            <Divider />
                           </Box>
                         );
                       })}
