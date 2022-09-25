@@ -1,22 +1,19 @@
-const Services = require("../models/servicesModel");
-const ServiseTypes = require("../models/serviseTypesModel");
-const Workers = require("../models/workersModel");
+const Worker = require("../models/workersModel");
+const WorkerReview = require("../models/reviewForWorkersModel");
 
 const getAll = async (req, res) => {
   try {
-    const serviceType = await ServiseTypes.findAll({
+    const workerReview = await WorkerReview.findAll({
       include: [
         {
-          model: Services,
-        },
-        {
-          model: Workers,
+          model: Worker,
         },
       ],
     });
 
     res.status(200).json({
-      data: serviceType,
+      datas: workerReview.length,
+      data: workerReview,
     });
   } catch (error) {
     console.log(error.message);
@@ -25,9 +22,9 @@ const getAll = async (req, res) => {
 
 const add = async (req, res) => {
   try {
-    const serviceType = await ServiseTypes.create(req.body);
+    const workerReview = await WorkerReview.create(req.body);
     res.status(200).json({
-      data: serviceType,
+      data: workerReview,
     });
   } catch (error) {
     console.log(error.message);
@@ -36,7 +33,7 @@ const add = async (req, res) => {
 
 const delete1 = async (req, res) => {
   try {
-    await ServiseTypes.destroy({ where: { id: req.params.id } });
+    await WorkerReview.destroy({ where: { id: req.params.id } });
     res.status(200).json({
       data: "success",
     });
@@ -46,37 +43,35 @@ const delete1 = async (req, res) => {
 };
 const getOne = async (req, res) => {
   try {
-    const serviceType = await ServiseTypes.findOne({
+    const workerReview = await WorkerReview.findOne({
       where: { id: req.params.id },
       include: [
         {
-          model: Services,
-        },
-        {
-          model: Workers,
+          model: Worker,
         },
       ],
     });
     res.status(200).json({
-      data: serviceType,
+      data: workerReview,
     });
   } catch (error) {
     console.log(error.message);
   }
 };
+
 const update = async (req, res) => {
   try {
-    const serviceType = await ServiseTypes.findOne({
+    const workerReview = await WorkerReview.findOne({
       where: { id: req.params.id },
     });
 
-    serviceType.name = req.body.name || serviceType.name;
-    serviceType.price = req.body.price || serviceType.name;
+    workerReview.body = req.body.body || workerReview.body;
+    workerReview.rating = req.body.rating || workerReview.rating;
 
-    const newService = await serviceType.save();
+    const newWorkerReview = await workerReview.save();
 
     res.status(200).json({
-      data: newService,
+      data: newWorkerReview,
     });
   } catch (error) {
     console.log(error.message);

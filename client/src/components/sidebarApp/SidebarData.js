@@ -5,6 +5,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт бытовой техники",
+        id: 11,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -26,6 +27,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт компьютерной техники",
+        id: 12,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -101,6 +103,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт офисной техники",
+        id: 13,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -117,6 +120,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт крупно бытовой техники",
+        id: 14,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -283,6 +287,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт цифровой техники",
+        id: 15,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -323,6 +328,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт электротранспорта",
+        id: 16,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -335,6 +341,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт климатической техники",
+        id: 17,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -390,6 +397,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт часов",
+        id: 18,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -405,6 +413,7 @@ export const categoryLink = [
     categoryChap: [
       {
         name: "Казахстан",
+        id: 21,
         nameCategory: [
           { nameLink: "Алматы", nameLinkTo: "#" },
           { nameLink: "Астана", nameLinkTo: "#" },
@@ -427,6 +436,7 @@ export const categoryLink = [
 
             {
         name: "Россия",
+        id: 22,
         nameCategory: [
           { nameLink: "Москва", nameLinkTo: "#" },
           { nameLink: "Екатеринбург", nameLinkTo: "#" },
@@ -441,6 +451,7 @@ export const categoryLink = [
       },
             {
         name: "Украина",
+        id: 23,
         nameCategory: [
           { nameLink: "Киев", nameLinkTo: "#" },
           { nameLink: "Харьков", nameLinkTo: "#" },
@@ -453,6 +464,7 @@ export const categoryLink = [
       },
             {
         name: "Беларусь",
+        id: 24,
         nameCategory: [
             { nameLink: "Минск", nameLinkTo: "#" },
             { nameLink: "Гомель", nameLinkTo: "#" },
@@ -464,6 +476,7 @@ export const categoryLink = [
       },
             {
         name: "Кыргызстан",
+        id: 25,
         nameCategory: [
             { nameLink: "Бишкек", nameLinkTo: "#" },
             { nameLink: "Ош", nameLinkTo: "#" },
@@ -471,36 +484,46 @@ export const categoryLink = [
       },
             {
         name: "Узбекистан",
+        id: 26,
         nameCategory: [
           { nameLink: "Ташкент", nameLinkTo: "#" },
         ],
       },
             {
-        name: "О нас", 
+        name: "О нас",
+        id: 27,
         nameTo: '#',
       },
             {
-        name: "Команда", 
+        name: "Команда",
+        id: 28,
         nameTo: '#',
       },
             {
-        name: "Отзывы", 
+        name: "Отзывы",
+        
+        id: 29,
         nameTo: '#',
       },
             {
-        name: "Акции", 
+        name: "Акции",
+        
+        id: 30,
         nameTo: '#',
       },
             {
-        name: "B2B клиентам", 
+        name: "B2B клиентам",
+        id: 31,
         nameTo: '#',
       },
             {
-        name: "Вакансии", 
+        name: "Вакансии",
+        id: 32,
         nameTo: '#',
       },
             {
-        name: "Контроль качества", 
+        name: "Контроль качества",
+        id: 33,
         nameTo: '#',
       },
 
