@@ -7,7 +7,7 @@ import LoadingScreen from "../components/LoadingScreen";
 // Vacancy
 import Vacancy from "../components/Vacancy/Vacancy";
 
-import VacancyId from '../components/Vacancy/VacancyId/Vacancyid'
+
 import Vacancyid from "../components/Vacancy/VacancyId/Vacancyid";
 const Loadable = (Component) => (props) =>
   (
