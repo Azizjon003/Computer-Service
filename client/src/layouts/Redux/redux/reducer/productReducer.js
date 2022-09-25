@@ -3,6 +3,7 @@ import { Actiontype } from "../contants/action-type";
 const initialState = {
   product: [],
 };
+const countInitialState = { count: 0 };
 
 export const productReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -24,3 +25,18 @@ export const selectedProductReducer = (
       return state;
   }
 };
+
+export const countProductReducer = (
+  state = countInitialState,
+  { type, payload }
+) => {
+  switch (type) {
+    case Actiontype.INCREMENT_PRODUCTS:
+      return { count: state.count + 1 };
+    case Actiontype.DECREMENT_PRODUCTS:
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+};
+//{ ...state, value: state.value - payload }

@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedProduct } from "../../redux/action/productAction";
-import { Button, Card, Container, Typography } from "@mui/material";
-import { settings } from "./sliderSettings";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import {
+  countDecProduct,
+  countIncProduct,
+  selectedProduct,
+} from "../../redux/action/productAction";
+import { Button, Container, Typography } from "@mui/material";
 import {
   Percent,
   ProductDescription,
@@ -22,10 +22,24 @@ import {
   FavoriteBorderRounded,
 } from "@mui/icons-material";
 import ModalContainer from "../../Modal/Modal";
+import { countProductReducer } from "../../redux/reducer/productReducer";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ProductDetails = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   const product = useSelector((state) => state.product);
-  const { images, title, price, description, category } = product;
+  const count = useSelector((state) => state.count.count);
+  console.log(count);
+  const { id, images, title, price, description, category } = product;
   const { productId } = useParams();
   const dispatch = useDispatch();
 
@@ -37,6 +51,13 @@ const ProductDetails = () => {
     console.log(response);
   };
 
+  const increment = () => {
+    dispatch(countIncProduct());
+  };
+  const decrement = () => {
+    dispatch(countDecProduct());
+  };
+
   useEffect(() => {
     if (product && product !== "") fetchProduct();
   }, [productId]);
@@ -44,7 +65,7 @@ const ProductDetails = () => {
   return (
     <div>
       <Container maxWidth="lg">
-        <Wrapper mt={3}>
+        <Wrapper mt={4}>
           <ProductImg>
             <FavoriteBorderRounded
               style={{
@@ -61,6 +82,25 @@ const ProductDetails = () => {
               src={images}
               alt="title"
             />
+            <Box mt={1} display="flex" gap={1}>
+              {/* <Slider {...settings}> */}
+              {images &&
+                images.map((image) => {
+                  return (
+                    <img
+                      style={{
+                        width: "85px",
+                        height: "85px",
+                        border: "1px solid #2D3092",
+                        borderRadius: "5px",
+                      }}
+                      src={image}
+                      alt={title}
+                    />
+                  );
+                })}
+              {/* </Slider> */}
+            </Box>
           </ProductImg>
           <ProductDescription>
             <Typography sx={{ fontWeight: 500, color: "#4a4b4f" }}>
@@ -122,29 +162,56 @@ const ProductDetails = () => {
                 </Typography>
               </Box>
             </Box>
-            <Box mb={3} mt={3}>
-              <Typography>Miqdor : </Typography>
+            <Box mb={3} mt={3} display="flex" alignItems="center">
+              <Typography>Miqdor :</Typography>
+              <Box ml={2} display="flex" bgcolor="#dddddd" borderRadius={2}>
+                <Button
+                  sx={{ background: "#F5F7FA" }}
+                  variant="outlined"
+                  onClick={() => increment()}
+                >
+                  +
+                </Button>
+                <Typography
+                  pt={1}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  color="#4A4B4F"
+                  width={70}
+                  height={30}
+                >
+                  {count}
+                </Typography>
+                <Button
+                  sx={{ background: "#F5F7FA" }}
+                  variant="outlined"
+                  onClick={() => decrement()}
+                >
+                  -
+                </Button>
+              </Box>
             </Box>
             <Box>
               <Button
-                variant="contained"
+                variant="outlined"
                 sx={{
-                  background: "#2D3092",
-                  color: "#fff",
+                  background: "#ffd200",
+                  // color: "#fff",
                   height: "45px",
-                  fontWeight: "400",
+                  fontWeight: "500",
                 }}
               >
                 Savatga qo'shish
               </Button>
               <Button
-                variant="contained"
+                variant="outlined"
                 sx={{
-                  background: "#ffd200",
-                  color: "#111",
+                  background: "#00AD27",
+                  color: "#ffd200",
                   marginLeft: "8px",
                   height: "45px",
-                  fontWeight: "400",
+                  fontWeight: "500",
                 }}
               >
                 Hoziroq harid qilish / UZC {price}
@@ -152,18 +219,32 @@ const ProductDetails = () => {
             </Box>
             <Box
               mt={2}
+              mb={2}
               width={220}
-              height={50}
               bgcolor="#fff"
               display="flex"
               justifyContent="center"
               alignItems="center"
-              border="1px solid #B5A6A1"
               borderRadius={1}
             >
               <ModalContainer />
             </Box>
-            <Percent mt={2}></Percent>
+            <Box width={400} display="flex" gap={2}>
+              <Typography>Izoh:</Typography>
+              <Box>
+                <textarea rows={7} cols={65}>
+                  Assalomu aleykum!
+                </textarea>
+                <Button
+                  style={{ background: "#DDDDDD" }}
+                  width={5}
+                  variant="outlined"
+                >
+                  Yuborish
+                </Button>
+              </Box>
+            </Box>
+            {/* <Percent mt={2}></Percent> */}
           </ProductDescription>
         </Wrapper>
       </Container>

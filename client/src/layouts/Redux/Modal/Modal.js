@@ -15,7 +15,7 @@ const ModalContainer = () => {
 
   return (
     <>
-      <Button height={50} variant="container" onClick={(e) => setOpen(true)}>
+      <Button variant="outlined" onClick={(e) => setOpen(true)}>
         <VerifiedUserTwoToneIcon style={{ color: "#00AD27" }} />
         Shoppping kafolati
       </Button>
