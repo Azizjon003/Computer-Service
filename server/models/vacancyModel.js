@@ -14,7 +14,10 @@ const Vacancy = sequelize.define("vacancies", {
   description: { type: DataTypes.STRING, allowNull: false },
 });
 
-VacancyCategory.hasOne(Vacancy, { onDelete: "CASCADE" });
+VacancyCategory.hasMany(Vacancy, { onDelete: "CASCADE" });
 Vacancy.belongsTo(VacancyCategory, { onDelete: "CASCADE" });
+
+VacancyCategory.sync({ alter: true });
+Vacancy.sync({ alter: true });
 
 module.exports = Vacancy;

@@ -23,36 +23,36 @@ const ProductComponent = () => {
       <Wrapper key={id}>
         <Grid container spacing={2}>
           <Grid item xs={6} md={3} lg={2}>
-            <Link to={`/product/${id  }`}>
-              <CartItem>
-                <CardItemWrapper>
+            <CartItem>
+              <CardItemWrapper>
+                <Link to={`/product/${id}`}>
                   <img src={images} alt={title} />
-                  <CardStatus>
-                    <Box className="status">
-                      3.4
-                      <StarBorderRounded style={{ fontSize: "18px" }} />
-                    </Box>
-                    <Box>${price}</Box>
-                  </CardStatus>
-                  <CardItemText>
-                    <Typography>{title}</Typography>
-                    <Typography className="description">
-                      Lorem Ipsum is simply dummy text
-                    </Typography>
-                  </CardItemText>
-                </CardItemWrapper>
-                <ButtonsContainer>
-                  <Button className="button1" variant="contained">
-                    <AddShoppingCartRounded sx={{ fontSize: "20px" }} />
-                    <Typography className="Text">Shop</Typography>
-                  </Button>
-                  <Button className="button2" variant="contained">
-                    <AddCardRounded sx={{ fontSize: "20px" }} />
-                    <Typography className="Text">ADD TO CART</Typography>
-                  </Button>
-                </ButtonsContainer>
-              </CartItem>
-            </Link>
+                </Link>
+                <CardStatus>
+                  <Box className="status">
+                    3.4
+                    <StarBorderRounded style={{ fontSize: "18px" }} />
+                  </Box>
+                  <Box>${price}</Box>
+                </CardStatus>
+                <CardItemText>
+                  <Typography>{title}</Typography>
+                  <Typography className="description">
+                    Lorem Ipsum is simply dummy text
+                  </Typography>
+                </CardItemText>
+              </CardItemWrapper>
+              <ButtonsContainer>
+                <Button className="button1" variant="contained">
+                  <AddShoppingCartRounded sx={{ fontSize: "20px" }} />
+                  <Typography className="Text">Shop</Typography>
+                </Button>
+                <Button className="button2" variant="contained">
+                  <AddCardRounded sx={{ fontSize: "20px" }} />
+                  <Typography className="Text">ADD TO CART</Typography>
+                </Button>
+              </ButtonsContainer>
+            </CartItem>
           </Grid>
         </Grid>
       </Wrapper>

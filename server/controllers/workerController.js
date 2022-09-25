@@ -1,12 +1,12 @@
 const Worker = require("../models/workersModel");
-const Review = require("../models/reviewsModel");
+const ServiceType = require("../models/serviseTypesModel");
 
 const getAll = async (req, res) => {
   try {
     const worker = await Worker.findAll({
       include: [
         {
-          model: Review,
+          model: ServiceType,
         },
       ],
     });
@@ -47,7 +47,7 @@ const getOne = async (req, res) => {
       where: { id: req.params.id },
       include: [
         {
-          model: User,
+          model: ServiceType,
         },
       ],
     });

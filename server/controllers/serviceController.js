@@ -1,12 +1,14 @@
-const Vacancy = require("../models/vacancyModel");
-const VacancyCategory = require("../models/vacancyCategoryModel");
+const Service = require("../models/servicesModel");
+const ServiseTypes = require("../models/serviseTypesModel");
 
 const getAll = async (req, res) => {
   try {
-    const vacancyCategory = await VacancyCategory.findAll({ include: Vacancy }); // required:true
+    const service = await Service.findAll({
+      include: ServiseTypes,
+    });
 
     res.status(200).json({
-      data: vacancyCategory,
+      data: service,
     });
   } catch (error) {
     console.log(error.message);
@@ -15,9 +17,9 @@ const getAll = async (req, res) => {
 
 const add = async (req, res) => {
   try {
-    const vacancyCategory = await VacancyCategory.create(req.body);
+    const service = await Service.create(req.body);
     res.status(200).json({
-      data: vacancyCategory,
+      data: service,
     });
   } catch (error) {
     console.log(error.message);
@@ -26,7 +28,7 @@ const add = async (req, res) => {
 
 const delete1 = async (req, res) => {
   try {
-    await VacancyCategory.destroy({ where: { id: req.params.id } });
+    await Service.destroy({ where: { id: req.params.id } });
     res.status(200).json({
       data: "success",
     });
@@ -36,12 +38,11 @@ const delete1 = async (req, res) => {
 };
 const getOne = async (req, res) => {
   try {
-    const vacancyCategory = await VacancyCategory.findOne({
+    const service = await Service.findOne({
       where: { id: req.params.id },
-      include: { model: Vacancy },
     });
     res.status(200).json({
-      data: vacancyCategory,
+      data: service,
     });
   } catch (error) {
     console.log(error.message);
@@ -49,18 +50,16 @@ const getOne = async (req, res) => {
 };
 const update = async (req, res) => {
   try {
-    const vacancyCategory = await VacancyCategory.findOne({
+    const service = await Service.findOne({
       where: { id: req.params.id },
     });
 
-    console.log(vacancyCategory);
+    service.name = req.body.name || service.name;
 
-    vacancyCategory.name = req.body.name || vacancyCategory.name;
-
-    const newVacancyCategory = await vacancyCategory.save();
+    const newService = await service.save();
 
     res.status(200).json({
-      data: newVacancyCategory,
+      data: newService,
     });
   } catch (error) {
     console.log(error.message);

@@ -1,7 +1,5 @@
 const sequelize = require("../configs/db");
 
-const Location = require("./locationsModel");
-
 const { DataTypes, Sequelize } = require("sequelize");
 
 const User = sequelize.define("users", {
@@ -22,8 +20,5 @@ const User = sequelize.define("users", {
     values: ["admin", "user", "moderator"],
   },
 });
-
-Location.hasOne(User, { onDelete: "CASCADE" });
-User.belongsTo(Location, { onDelete: "CASCADE" });
 
 module.exports = User;

@@ -1,9 +1,24 @@
 const Vacancy = require("../models/vacancyModel");
 const VacancyCategory = require("../models/vacancyCategoryModel");
+const SubmitVacancy = require("../models/submitVacancyModel");
 
 const getAll = async (req, res) => {
   try {
-    const vacancies = await Vacancy.findAll({ include: VacancyCategory }); // required:true
+    const vacancies = await Vacancy.findAll({
+      include: [
+        {
+          model: VacancyCategory,
+        },
+        {
+          model: SubmitVacancy,
+          // include: [
+          //   {
+          //     model: vacancyCategories,
+          //   },
+          // ],
+        },
+      ],
+    }); // required:true
 
     res.status(200).json({
       data: vacancies,
