@@ -1,23 +1,22 @@
-const Worker = require("../models/workersModel");
-const ServiceType = require("../models/serviseTypesModel");
-const ReviewForWorkers = require("../models/reviewForWorkersModel");
+const Services = require("../models/servicesModel");
+const ServiseTypes = require("../models/serviseTypesModel");
+const Workers = require("../models/workersModel");
 
 const getAll = async (req, res) => {
   try {
-    const worker = await Worker.findAll({
+    const serviceType = await ServiseTypes.findAll({
       include: [
         {
-          model: ServiceType,
+          model: Services,
         },
         {
-          model: ReviewForWorkers,
+          model: Workers,
         },
       ],
     });
 
     res.status(200).json({
-      datas: worker.length,
-      data: worker,
+      data: serviceType,
     });
   } catch (error) {
     console.log(error.message);
@@ -26,9 +25,9 @@ const getAll = async (req, res) => {
 
 const add = async (req, res) => {
   try {
-    const worker = await Worker.create(req.body);
+    const serviceType = await ServiseTypes.create(req.body);
     res.status(200).json({
-      data: worker,
+      data: serviceType,
     });
   } catch (error) {
     console.log(error.message);
@@ -37,7 +36,7 @@ const add = async (req, res) => {
 
 const delete1 = async (req, res) => {
   try {
-    await Worker.destroy({ where: { id: req.params.id } });
+    await ServiseTypes.destroy({ where: { id: req.params.id } });
     res.status(200).json({
       data: "success",
     });
@@ -47,37 +46,37 @@ const delete1 = async (req, res) => {
 };
 const getOne = async (req, res) => {
   try {
-    const worker = await Worker.findOne({
+    const serviceType = await ServiseTypes.findOne({
       where: { id: req.params.id },
       include: [
         {
-          model: ServiceType,
+          model: Services,
         },
         {
-          model: ReviewForWorkers,
+          model: Workers,
         },
       ],
     });
     res.status(200).json({
-      data: worker,
+      data: serviceType,
     });
   } catch (error) {
     console.log(error.message);
   }
 };
-
 const update = async (req, res) => {
   try {
-    const worker = await Worker.findOne({
+    const serviceType = await ServiseTypes.findOne({
       where: { id: req.params.id },
     });
 
-    worker.status = req.body.status || worker.status;
+    serviceType.name = req.body.name || serviceType.name;
+    serviceType.price = req.body.price || serviceType.name;
 
-    const newWorker = await worker.save();
+    const newService = await serviceType.save();
 
     res.status(200).json({
-      data: newWorker,
+      data: newService,
     });
   } catch (error) {
     console.log(error.message);

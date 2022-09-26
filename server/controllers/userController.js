@@ -1,9 +1,29 @@
+const ReviewForWorkers = require("../models/reviewForWorkersModel");
+const SubmitVacancy = require("../models/submitVacancyModel");
 const User = require("../models/userModel");
-const Location = require("../models/locationsModel");
+
+// const Location = require("../models/locationsModel");
 
 const getAll = async (req, res) => {
   try {
-    const users = await User.findAll({ include: Location }); // required:true
+    const users = await User.findAll({
+      include: [
+        {
+          model: SubmitVacancy,
+        },
+        {
+          model: ReviewForWorkers,
+        },
+        // {
+        //   model: Vacancy,
+        //   include: [
+        //     {
+        //       model: vacancyCategories,
+        //     },
+        //   ],
+        // },
+      ],
+    }); // required:true
 
     res.status(200).json({
       data: users,

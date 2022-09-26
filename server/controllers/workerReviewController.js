@@ -1,10 +1,15 @@
-const ReviewCategory = require("../models/reviewsCategory");
+const Worker = require("../models/workersModel");
+
+const WorkerReview = require("../models/reviewForWorkersModel");
 const User = require("../models/userModel");
 
 const getAll = async (req, res) => {
   try {
-    const reviewsCategory = await ReviewCategory.findAll({
+    const workerReview = await WorkerReview.findAll({
       include: [
+        {
+          model: Worker,
+        },
         {
           model: User,
         },
@@ -12,8 +17,8 @@ const getAll = async (req, res) => {
     });
 
     res.status(200).json({
-      datas: reviewsCategory.length,
-      data: reviewsCategory,
+      datas: workerReview.length,
+      data: workerReview,
     });
   } catch (error) {
     console.log(error.message);
@@ -22,9 +27,9 @@ const getAll = async (req, res) => {
 
 const add = async (req, res) => {
   try {
-    const reviewsCategory = await ReviewCategory.create(req.body);
+    const workerReview = await WorkerReview.create(req.body);
     res.status(200).json({
-      data: reviewsCategory,
+      data: workerReview,
     });
   } catch (error) {
     console.log(error.message);
@@ -33,7 +38,7 @@ const add = async (req, res) => {
 
 const delete1 = async (req, res) => {
   try {
-    await ReviewCategory.destroy({ where: { id: req.params.id } });
+    await WorkerReview.destroy({ where: { id: req.params.id } });
     res.status(200).json({
       data: "success",
     });
@@ -43,16 +48,19 @@ const delete1 = async (req, res) => {
 };
 const getOne = async (req, res) => {
   try {
-    const reviewsCategory = await ReviewCategory.findOne({
+    const workerReview = await WorkerReview.findOne({
       where: { id: req.params.id },
       include: [
+        {
+          model: Worker,
+        },
         {
           model: User,
         },
       ],
     });
     res.status(200).json({
-      data: reviewsCategory,
+      data: workerReview,
     });
   } catch (error) {
     console.log(error.message);

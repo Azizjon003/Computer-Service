@@ -9,7 +9,8 @@ const Services = sequelize.define("services", {
     primaryKey: true,
   },
   name: { type: DataTypes.STRING, allowNull: false },
-  service_types_id: { type: DataTypes.STRING, allowNull: false }, //boshqa table
 });
+
+Services.sync({ alter: true });
 
 module.exports = Services;

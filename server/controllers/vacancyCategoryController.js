@@ -3,7 +3,7 @@ const VacancyCategory = require("../models/vacancyCategoryModel");
 
 const getAll = async (req, res) => {
   try {
-    const vacancyCategory = await VacancyCategory.findAll(); // required:true
+    const vacancyCategory = await VacancyCategory.findAll({ include: Vacancy }); // required:true
 
     res.status(200).json({
       data: vacancyCategory,

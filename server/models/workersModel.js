@@ -1,5 +1,4 @@
 const sequelize = require("../configs/db");
-const Review = require("../models/reviewsModel");
 
 const { DataTypes, Sequelize } = require("sequelize");
 

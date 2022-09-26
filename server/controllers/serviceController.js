@@ -1,23 +1,14 @@
-const Worker = require("../models/workersModel");
-const ServiceType = require("../models/serviseTypesModel");
-const ReviewForWorkers = require("../models/reviewForWorkersModel");
+const Service = require("../models/servicesModel");
+const ServiseTypes = require("../models/serviseTypesModel");
 
 const getAll = async (req, res) => {
   try {
-    const worker = await Worker.findAll({
-      include: [
-        {
-          model: ServiceType,
-        },
-        {
-          model: ReviewForWorkers,
-        },
-      ],
+    const service = await Service.findAll({
+      include: ServiseTypes,
     });
 
     res.status(200).json({
-      datas: worker.length,
-      data: worker,
+      data: service,
     });
   } catch (error) {
     console.log(error.message);
@@ -26,9 +17,9 @@ const getAll = async (req, res) => {
 
 const add = async (req, res) => {
   try {
-    const worker = await Worker.create(req.body);
+    const service = await Service.create(req.body);
     res.status(200).json({
-      data: worker,
+      data: service,
     });
   } catch (error) {
     console.log(error.message);
@@ -37,7 +28,7 @@ const add = async (req, res) => {
 
 const delete1 = async (req, res) => {
   try {
-    await Worker.destroy({ where: { id: req.params.id } });
+    await Service.destroy({ where: { id: req.params.id } });
     res.status(200).json({
       data: "success",
     });
@@ -47,37 +38,28 @@ const delete1 = async (req, res) => {
 };
 const getOne = async (req, res) => {
   try {
-    const worker = await Worker.findOne({
+    const service = await Service.findOne({
       where: { id: req.params.id },
-      include: [
-        {
-          model: ServiceType,
-        },
-        {
-          model: ReviewForWorkers,
-        },
-      ],
     });
     res.status(200).json({
-      data: worker,
+      data: service,
     });
   } catch (error) {
     console.log(error.message);
   }
 };
-
 const update = async (req, res) => {
   try {
-    const worker = await Worker.findOne({
+    const service = await Service.findOne({
       where: { id: req.params.id },
     });
 
-    worker.status = req.body.status || worker.status;
+    service.name = req.body.name || service.name;
 
-    const newWorker = await worker.save();
+    const newService = await service.save();
 
     res.status(200).json({
-      data: newWorker,
+      data: newService,
     });
   } catch (error) {
     console.log(error.message);
