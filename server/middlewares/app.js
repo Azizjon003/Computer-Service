@@ -12,6 +12,11 @@ const submitVacancy = require("../routes/submitVacancyRouter");
 const workers = require("../routes/workerRouter");
 const serviseType = require("../routes/serviceTypeRouter");
 const workerReview = require("../routes/workerReview");
+const serviceTypeReview = require("../routes/serviceTypeReview");
+const brands = require("../routes/brandsRouter");
+const productCategory = require("../routes/productCategoryRouter");
+const sales = require("../routes/salesRouter");
+const productDetails = require("../routes/productDetailsRouter");
 
 app.use("/api/v1/vacancyCategories", vacancyCategories);
 app.use("/api/v1/vacancy", vacancyRouter);
@@ -22,5 +27,10 @@ app.use("/api/v1/services", serviceRouter);
 app.use("/api/v1/workers", workers);
 app.use("/api/v1/serviceTypes", serviseType);
 app.use("/api/v1/reviewWorkers", workerReview);
+app.use("/api/v1/reviewServiceType", serviceTypeReview);
+app.use("/api/v1/brands", brands);
+app.use("/api/v1/productCategories", productCategory);
+app.use("/api/v1/sales", sales);
+app.use("/api/v1/productDetails", productDetails);
 
 module.exports = app;

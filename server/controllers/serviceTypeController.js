@@ -1,6 +1,7 @@
 const Services = require("../models/servicesModel");
 const ServiseTypes = require("../models/serviseTypesModel");
 const Workers = require("../models/workersModel");
+const ServiceTypeReview = require("../models/reviewForServiceType");
 
 const getAll = async (req, res) => {
   try {
@@ -11,6 +12,9 @@ const getAll = async (req, res) => {
         },
         {
           model: Workers,
+        },
+        {
+          model: ServiceTypeReview,
         },
       ],
     });

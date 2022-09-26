@@ -1,4 +1,5 @@
 const ReviewForWorkers = require("../models/reviewForWorkersModel");
+const ReviewForServiceType = require("../models/reviewForServiceType");
 const SubmitVacancy = require("../models/submitVacancyModel");
 const User = require("../models/userModel");
 
@@ -13,6 +14,9 @@ const getAll = async (req, res) => {
         },
         {
           model: ReviewForWorkers,
+        },
+        {
+          model: ReviewForServiceType,
         },
         // {
         //   model: Vacancy,
