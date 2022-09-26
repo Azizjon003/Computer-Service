@@ -33,6 +33,7 @@ b {
     }
     .sidebar-phone-catalog-card{
         display: block;
+        padding: 0 20px;
     }
 }
 @media only screen and (min-width: 600px) {
@@ -42,9 +43,11 @@ b {
  
 .sidebar-phone-catalog-card{
     display: block;
+    padding: 5px 20px;
 }
 .sidebar-category-card{
     display: block;
+    padding: 0 20px;
 }
 }
 @media only screen and (min-width: 768px) {
@@ -55,6 +58,7 @@ b {
 
 .sidebar-catalog-card{
     display: block;
+    padding: 5px 10px;
 }
 
 .sidebar-phone-catalog-card{

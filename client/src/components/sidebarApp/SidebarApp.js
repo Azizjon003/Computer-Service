@@ -47,7 +47,7 @@ export default function SidebarApp() {
   };
 
   const list = (anchor) => (
-    <Box sx={{ paddingX: indexData < 27 ? "60px" : "0" }} role="presentation">
+    <Box role="presentation">
       <Divider />
       <List>
         <Box sx={{ display: "flex" }}>
@@ -56,7 +56,7 @@ export default function SidebarApp() {
             className="sidebar-drawer "
             sx={{
               flexShrink: 0,
-              width: "100%",
+              width: '100%',
               display: { xs: "block", sm: "none" },
               "& .MuiDrawer-paper": {
                 width: "100%",
