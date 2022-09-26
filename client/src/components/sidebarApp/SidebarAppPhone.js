@@ -66,6 +66,7 @@ export default function SidebarAppPhone({ data, i }) {
                       sx={{
                         color: "rgb(8, 10, 155)",
                         borderRadius: 4,
+                        marginTop: 3
                       }}
                     >
                       {category3.nameLink}
