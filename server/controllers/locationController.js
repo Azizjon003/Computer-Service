@@ -1,9 +1,19 @@
-// const Location = require("../models/locationsModel");
-// const User = require("../models/userModel");
+const Location = require("../models/locationsModel");
+const Products = require("../models/productsModel");
+const User = require("../models/userModel");
 
 const getAll = async (req, res) => {
   try {
-    const locations = await Location.findAll(); // required:true
+    const locations = await Location.findAll({
+      include: [
+        {
+          model: User,
+        },
+        {
+          model: Products,
+        },
+      ],
+    }); // required:true
     res.status(200).json({
       data: locations,
       status: "succes",
@@ -38,7 +48,17 @@ const delete1 = async (req, res) => {
 };
 const getOne = async (req, res) => {
   try {
-    const loc = await Location.findOne({ where: { id: req.params.id } });
+    const loc = await Location.findOne({
+      where: { id: req.params.id },
+      include: [
+        {
+          model: User,
+        },
+        {
+          model: Products,
+        },
+      ],
+    });
     res.status(200).json({
       data: loc,
     });
