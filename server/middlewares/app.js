@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+const ErrController = require("../controllers/errController");
+
 app.use(express.json());
 
 const vacancyCategories = require("../routes/vacancyCategoryRouter");
@@ -19,6 +21,7 @@ const sales = require("../routes/salesRouter");
 const productDetails = require("../routes/productDetailsRouter");
 const product = require("../routes/productRouter");
 const productReview = require("../routes/productReview");
+const AppError = require("../utility/AppError");
 
 app.use("/api/v1/vacancyCategories", vacancyCategories);
 app.use("/api/v1/vacancy", vacancyRouter);
@@ -36,5 +39,11 @@ app.use("/api/v1/sales", sales);
 app.use("/api/v1/productDetails", productDetails);
 app.use("/api/v1/products", product);
 app.use("/api/v1/productReviews", productReview);
+
+app.use("*", (req, res, next) => {
+  next(new AppError("This page is not defined"), 404);
+});
+
+app.use(ErrController);
 
 module.exports = app;

@@ -5,110 +5,91 @@ const Products = require("../models/productsModel");
 const Sales = require("../models/salesModel");
 const ProductReview = require("../models/reviewForProducts");
 const Locations = require("../models/locationsModel");
+const catchErrAsync = require("../utility/catchErrAsync");
 
-const getAll = async (req, res) => {
-  try {
-    const products = await Products.findAll({
-      include: [
-        {
-          model: Brands,
-        },
-        {
-          model: ProductCategory,
-        },
-        {
-          model: ProductDetails,
-        },
-        {
-          model: Sales,
-        },
-        {
-          model: ProductReview,
-        },
-        {
-          model: Locations,
-        },
-      ],
-    }); // required:true
-    res.status(200).json({
-      datas: products.length,
-      data: products,
-      status: "succes",
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+const getAll = catchErrAsync(async (req, res, next) => {
+  const products = await Products.findAll({
+    include: [
+      {
+        model: Brands,
+      },
+      {
+        model: ProductCategory,
+      },
+      {
+        model: ProductDetails,
+      },
+      {
+        model: Sales,
+      },
+      {
+        model: ProductReview,
+      },
+      {
+        model: Locations,
+      },
+    ],
+  }); // required:true
+  res.status(200).json({
+    datas: products.length,
+    data: products,
+    status: "succes",
+  });
+});
 
-const add = async (req, res) => {
-  try {
-    const products = await Products.create(req.body);
-    res.status(200).json({
-      data: products,
-      status: "succes",
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+const add = catchErrAsync(async (req, res, next) => {
+  const products = await Products.create(req.body);
+  res.status(200).json({
+    data: products,
+    status: "succes",
+  });
+});
 
-const delete1 = async (req, res) => {
-  try {
-    await Products.destroy({ where: { id: req.params.id } });
-    res.status(200).json({
-      data: "success",
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-const getOne = async (req, res) => {
-  try {
-    const products = await Products.findOne({
-      where: { id: req.params.id },
-      include: [
-        {
-          model: Brands,
-        },
-        {
-          model: ProductCategory,
-        },
-        {
-          model: ProductDetails,
-        },
-        {
-          model: Sales,
-        },
-        {
-          model: ProductReview,
-        },
-        {
-          model: Locations,
-        },
-      ],
-    });
-    res.status(200).json({
-      data: products,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-const update = async (req, res) => {
-  try {
-    const products = await Products.findOne({ where: { id: req.params.id } });
+const delete1 = catchErrAsync(async (req, res, next) => {
+  await Products.destroy({ where: { id: req.params.id } });
+  res.status(200).json({
+    data: "success",
+  });
+});
+const getOne = catchErrAsync(async (req, res, next) => {
+  const products = await Products.findOne({
+    where: { id: req.params.id },
+    include: [
+      {
+        model: Brands,
+      },
+      {
+        model: ProductCategory,
+      },
+      {
+        model: ProductDetails,
+      },
+      {
+        model: Sales,
+      },
+      {
+        model: ProductReview,
+      },
+      {
+        model: Locations,
+      },
+    ],
+  });
+  res.status(200).json({
+    data: products,
+  });
+});
+const update = catchErrAsync(async (req, res, next) => {
+  const products = await Products.findOne({ where: { id: req.params.id } });
 
-    products.name = req.body.name || products.name;
+  products.name = req.body.name || products.name;
 
-    const newProducts = await products.save();
+  const newProducts = await products.save();
 
-    res.status(200).json({
-      data: newProducts,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+  res.status(200).json({
+    data: newProducts,
+  });
+});
 
 module.exports = {
   add,

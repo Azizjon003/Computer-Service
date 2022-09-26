@@ -1,69 +1,50 @@
 const ProductCategory = require("../models/productCategoriesModel");
+const catchErrAsync = require("../utility/catchErrAsync");
 
-const getAll = async (req, res) => {
-  try {
-    const productCategory = await ProductCategory.findAll(); // required:true
-    res.status(200).json({
-      datas: productCategory.length,
-      data: productCategory,
-      status: "succes",
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+const getAll = catchErrAsync(async (req, res, next) => {
+  const productCategory = await ProductCategory.findAll(); // required:true
+  res.status(200).json({
+    datas: productCategory.length,
+    data: productCategory,
+    status: "succes",
+  });
+});
 
-const add = async (req, res) => {
-  try {
-    const productCategory = await ProductCategory.create(req.body);
-    res.status(200).json({
-      data: productCategory,
-      status: "succes",
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+const add = catchErrAsync(async (req, res, next) => {
+  const productCategory = await ProductCategory.create(req.body);
+  res.status(200).json({
+    data: productCategory,
+    status: "succes",
+  });
+});
 
-const delete1 = async (req, res) => {
-  try {
-    await ProductCategory.destroy({ where: { id: req.params.id } });
-    res.status(200).json({
-      data: "success",
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-const getOne = async (req, res) => {
-  try {
-    const productCategory = await ProductCategory.findOne({
-      where: { id: req.params.id },
-    });
-    res.status(200).json({
-      data: productCategory,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-const update = async (req, res) => {
-  try {
-    const productCategory = await ProductCategory.findOne({
-      where: { id: req.params.id },
-    });
+const delete1 = catchErrAsync(async (req, res, next) => {
+  await ProductCategory.destroy({ where: { id: req.params.id } });
+  res.status(200).json({
+    data: "success",
+  });
+});
+const getOne = catchErrAsync(async (req, res, next) => {
+  const productCategory = await ProductCategory.findOne({
+    where: { id: req.params.id },
+  });
+  res.status(200).json({
+    data: productCategory,
+  });
+});
+const update = catchErrAsync(async (req, res, next) => {
+  const productCategory = await ProductCategory.findOne({
+    where: { id: req.params.id },
+  });
 
-    productCategory.name = req.body.name || productCategory.name;
+  productCategory.name = req.body.name || productCategory.name;
 
-    const newProductCategory = await productCategory.save();
+  const newProductCategory = await productCategory.save();
 
-    res.status(200).json({
-      data: newProductCategory,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+  res.status(200).json({
+    data: newProductCategory,
+  });
+});
 
 module.exports = {
   add,
