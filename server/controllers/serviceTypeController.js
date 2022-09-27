@@ -20,7 +20,9 @@ const getAll = catchErrAsync(async (req, res, next) => {
   });
 
   res.status(200).json({
+    dataLength: serviceType.length,
     data: serviceType,
+    status: "succes",
   });
 });
 
