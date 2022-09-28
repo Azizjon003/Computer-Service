@@ -9,16 +9,16 @@ export const categoryLink = [
         nameCategory: [
           {
             //ikkinchi oyna
-            nameLink: "Ремонт микроволновок",
-            nameLinkTo: "#",
+            nameLink: "Ремонт пылесосов",
+            nameLinkTo: "/remont-plesasov",
           },
           {
             nameLink: "Ремонт микроволновок",
-            nameLinkTo: "#",
+            nameLinkTo: "/Ремонт-микроволновок",
           },
           {
             nameLink: "Ремонт кофемашин",
-            nameLinkTo: "#",
+            nameLinkTo: "/Ремонт-кофемашин",
           },
         ],
       },
@@ -32,7 +32,7 @@ export const categoryLink = [
           {
             //ikkinchi oyna
             nameLink: "Ремонт ноутбуков",
-            nameLinkTo: "#",
+            nameLinkTo: "/remont-noutbuk",
             services: [
               {
                 servicesName: "Услуги",

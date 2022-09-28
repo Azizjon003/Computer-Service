@@ -55,7 +55,9 @@ export default function Footer() {
                 {item.name}
             </Typography>
             {item.category.map((item2, i2) => {return (
-               <ListItemButton>
+               <ListItemButton
+               sx={{borderRadius: 20}}
+               >
                {item2.icon&& item2.icon }
                <Typography key={i2}
                 variant="p"
