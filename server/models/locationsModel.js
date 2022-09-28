@@ -1,4 +1,6 @@
 const sequelize = require("../configs/db");
+const Products = require("./productsModel");
+const User = require("./userModel");
 
 const { DataTypes, Sequelize } = require("sequelize");
 
@@ -14,5 +16,13 @@ const Locations = sequelize.define("locations", {
   street: { type: DataTypes.STRING, allowNull: false },
   home: { type: DataTypes.INTEGER, allowNull: false },
 });
+
+Products.hasMany(Locations, { onDelete: "CASCADE" });
+Locations.belongsTo(Products, { onDelete: "CASCADE" });
+
+User.hasMany(Locations, { onDelete: "CASCADE" });
+Locations.belongsTo(User, { onDelete: "CASCADE" });
+
+Locations.sync({ alter: true });
 
 module.exports = Locations;

@@ -1,4 +1,8 @@
 const sequelize = require("../configs/db");
+const ProductCategory = require("./productCategoriesModel");
+const Brands = require("./brandsModel");
+const Sales = require("./salesModel");
+const ProductDetails = require("./productDetailsModel");
 
 const { DataTypes, Sequelize } = require("sequelize");
 
@@ -12,11 +16,18 @@ const Products = sequelize.define("products", {
   price: { type: DataTypes.INTEGER, allowNull: false },
   image_main: { type: DataTypes.STRING, allowNull: false },
   quantity: { type: DataTypes.INTEGER, allowNull: false },
-  sale_id: { type: DataTypes.STRING, allowNull: false }, //boshqa table
-  category_id: { type: DataTypes.STRING, allowNull: false }, //boshqa table
-  reviews_id: { type: DataTypes.STRING, allowNull: false }, //boshqa table
-  detail_id: { type: DataTypes.STRING, allowNull: false }, //boshqa table
-  brand_id: { type: DataTypes.STRING, allowNull: false }, //boshqa table
 });
+
+Brands.hasMany(Products, { onDelete: "CASCADE" });
+Products.belongsTo(Brands, { onDelete: "CASCADE" });
+
+ProductCategory.hasMany(Products, { onDelete: "CASCADE" });
+Products.belongsTo(ProductCategory, { onDelete: "CASCADE" });
+
+Sales.hasMany(Products, { onDelete: "CASCADE" });
+Products.belongsTo(Sales, { onDelete: "CASCADE" });
+
+ProductDetails.hasOne(Products, { onDelete: "CASCADE" });
+Products.belongsTo(ProductDetails, { onDelete: "CASCADE" });
 
 module.exports = Products;

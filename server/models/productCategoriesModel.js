@@ -2,7 +2,7 @@ const sequelize = require("../configs/db");
 
 const { DataTypes, Sequelize } = require("sequelize");
 
-const Categories = sequelize.define("categories", {
+const ProductCategory = sequelize.define("productCategory", {
   id: {
     type: Sequelize.DataTypes.UUID,
     defaultValue: Sequelize.DataTypes.UUIDV4,
@@ -11,4 +11,4 @@ const Categories = sequelize.define("categories", {
   name: { type: DataTypes.STRING, allowNull: false },
 });
 
-module.exports = Categories;
+module.exports = ProductCategory;
