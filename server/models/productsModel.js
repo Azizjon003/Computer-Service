@@ -30,4 +30,6 @@ Products.belongsTo(Sales, { onDelete: "CASCADE" });
 ProductDetails.hasOne(Products, { onDelete: "CASCADE" });
 Products.belongsTo(ProductDetails, { onDelete: "CASCADE" });
 
+Products.sync({ alter: true });
+
 module.exports = Products;

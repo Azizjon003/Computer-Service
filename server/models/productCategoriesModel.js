@@ -11,4 +11,6 @@ const ProductCategory = sequelize.define("productCategory", {
   name: { type: DataTypes.STRING, allowNull: false },
 });
 
+ProductCategory.sync({ alter: true });
+
 module.exports = ProductCategory;

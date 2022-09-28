@@ -16,4 +16,6 @@ const Workers = sequelize.define("workers", {
   experience: { type: DataTypes.STRING, allowNull: false },
 });
 
+Workers.sync({ alter: true });
+
 module.exports = Workers;

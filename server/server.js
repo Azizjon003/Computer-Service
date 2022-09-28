@@ -5,8 +5,6 @@ const express = require("express");
 const PORT = process.env.PORT || 8000;
 const DB = require("./configs/db");
 
-const { json } = require("body-parser");
-
 DB.sync();
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));

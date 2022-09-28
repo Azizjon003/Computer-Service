@@ -11,4 +11,6 @@ const VacancyCategory = sequelize.define("vacancyCategories", {
   name: { type: DataTypes.STRING, allowNull: false },
 });
 
+VacancyCategory.sync({ alter: true });
+
 module.exports = VacancyCategory;
