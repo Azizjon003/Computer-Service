@@ -1,7 +1,7 @@
 .category1-page1-card9-container{
     display: grid;
     grid-template-columns: 13% 13% 13.5% 13.5% 13% 13%;
-    grid-gap: 4%;
+    grid-gap: 20px 4%;
 }
 
 @media only screen and (max-width: 600px) {
