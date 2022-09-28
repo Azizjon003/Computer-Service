@@ -24,6 +24,7 @@ import { editDataIndex } from "../redux/testsSlice";
 import "./sidebarApp.css";
 import SidebarAppPhone from "./SidebarAppPhone";
 import { Clear } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 const drawerWidth = 240;
 
 export default function SidebarApp() {
@@ -206,15 +207,18 @@ export default function SidebarApp() {
                       category2.nameCategory.map((category3, indexC3) => {
                         return (
                           <Box>
+                            <Link to={category3.nameLinkTo}>
                             <ListItemButton
+                              onClick={toggleDrawer(anchor, false)}
                               key={indexC3}
                               sx={{
                                 marginY: 1,
                                 color: "rgb(8, 10, 155)",
                               }}
-                            >
+                              >
                               {category3.nameLink}
                             </ListItemButton>
+                              </Link>
                             {category3.services &&
                               category3.services.map((category4, indexC) => {
                                 return (

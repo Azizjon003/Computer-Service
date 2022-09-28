@@ -1,0 +1,28 @@
+
+.pagesApp {
+  margin: 0 12%;
+}
+@media only screen and (max-width: 600px) {
+  .pagesApp {
+    margin: 0 1%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .pagesApp {
+    margin: 0 1%;
+  }
+}
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+  .pagesApp {
+    margin: 0 5%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .pagesApp {
+    margin: 0 12%;
+  }
+  
+}
