@@ -5,43 +5,26 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .catalog1-page1-card8-container {
-      padding: 40px 20%;
-      grid-template-columns: auto;
-      text-align: center;
-    }
-  
-    .catalog1-page1-card8-container img {
-      width: 40%;
-      margin: 0 30% 0 30%;
-    }
-  }
+  .category1-page1-card9-container{
+    grid-template-columns: 48% 48%;
+}
+} 
   @media only screen and (min-width: 600px) {
-    .catalog1-page1-card8-container {
-      padding: 50px 20%;
-      grid-template-columns: auto;
-      text-align: center;
-    }
-    .catalog1-page1-card8-container img {
-      width: 40%;
-      margin: 0 30% 0 30%;
-    }
+    .category1-page1-card9-container{
+      grid-template-columns: 27% auto 27%;
+  }
   }
   @media only screen and (min-width: 768px) {
+    .category1-page1-card9-container{
+      grid-template-columns: 22% 22% 22% 22% ;
+  }
   }
   
   @media only screen and (min-width: 992px) {
-    .catalog1-page1-card8-container {
-      padding: 0 5%;
-      grid-template-columns: 40% auto 26%;
-      grid-gap: 20px 5%;
-      text-align: left;
-    }
+    .category1-page1-card9-container{
+      grid-template-columns: 13% 13% 13.5% 13.5% 13% 13%;
+  }
   
-    .catalog1-page1-card8-container img {
-      width: 100%;
-      margin: 0 31% 0 31%;
-    }
   }
   @media only screen and (min-width: 1200px) {
     .catalog1-page1-card8-container {
