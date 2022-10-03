@@ -1,5 +1,4 @@
 const sequelize = require("../configs/db");
-const Review = require("../models/reviewsModel");
 
 const { DataTypes, Sequelize } = require("sequelize");
 
@@ -16,5 +15,7 @@ const Workers = sequelize.define("workers", {
   status: { type: DataTypes.INTEGER, allowNull: false },
   experience: { type: DataTypes.STRING, allowNull: false },
 });
+
+Workers.sync({ alter: true });
 
 module.exports = Workers;

@@ -14,10 +14,12 @@ const SubmitVacancy = sequelize.define("submitVacancies", {
   status: { type: DataTypes.INTEGER, allowNull: false, defaultValue: "1" },
 });
 
-User.hasOne(SubmitVacancy, { onDelete: "CASCADE" });
+User.hasMany(SubmitVacancy, { onDelete: "CASCADE" });
 SubmitVacancy.belongsTo(User, { onDelete: "CASCADE" });
 
-Vacancy.hasOne(SubmitVacancy, { onDelete: "CASCADE" });
+Vacancy.hasMany(SubmitVacancy, { onDelete: "CASCADE" });
 SubmitVacancy.belongsTo(Vacancy, { onDelete: "CASCADE" });
+
+SubmitVacancy.sync({ alter: true });
 
 module.exports = SubmitVacancy;

@@ -1,0 +1,5 @@
+.category1-page1-card7-grid{
+    display: grid;
+    grid-template-columns: 45% auto;
+    align-items: center;
+}

@@ -1,22 +1,53 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
+
+const AppError = require("../utility/AppError");
+const ErrController = require("../controllers/errController");
 
 app.use(express.json());
+app.use(morgan("common"));
 
+const product = require("../routes/productRouter");
+const vacancyCategories = require("../routes/vacancyCategoryRouter");
 const vacancyRouter = require("../routes/vacancyRouter");
+const serviceRouter = require("../routes/serviceRouter");
 const locationRouter = require("../routes/locationRouter");
 const userRouter = require("../routes/userRouter");
-const vacancyCategories = require("../routes/vacancyCategoryRouter");
 const submitVacancy = require("../routes/submitVacancyRouter");
-const review = require("../routes/reviewRouter");
 const workers = require("../routes/workerRouter");
+const serviseType = require("../routes/serviceTypeRouter");
+const workerReview = require("../routes/workerReview");
+const serviceTypeReview = require("../routes/serviceTypeReview");
+const brands = require("../routes/brandsRouter");
+const productCategory = require("../routes/productCategoryRouter");
+const sales = require("../routes/salesRouter");
+const productDetails = require("../routes/productDetailsRouter");
+const productReview = require("../routes/productReview");
+const liveSearch = require("../routes/liveSearch");
 
+app.use("/api/v1/products", product);
+app.use("/api/v1/vacancyCategories", vacancyCategories);
 app.use("/api/v1/vacancy", vacancyRouter);
 app.use("/api/v1/locations", locationRouter);
-app.use("/api/v1/users", userRouter);
-app.use("/api/v1/vacancyCategories", vacancyCategories);
 app.use("/api/v1/submitVacancy", submitVacancy);
-app.use("/api/v1/reviews", review);
+app.use("/api/v1/services", serviceRouter);
 app.use("/api/v1/workers", workers);
+app.use("/api/v1/serviceTypes", serviseType);
+app.use("/api/v1/reviewWorkers", workerReview);
+app.use("/api/v1/reviewServiceType", serviceTypeReview);
+app.use("/api/v1/brands", brands);
+app.use("/api/v1/productCategories", productCategory);
+app.use("/api/v1/sales", sales);
+app.use("/api/v1/productDetails", productDetails);
+app.use("/api/v1/productReviews", productReview);
+app.use("/api/v1/search", liveSearch);
+app.use("/api/v1/users", userRouter);
+
+app.use("*", (req, res, next) => {
+  next(new AppError("This page is not defined"), 404);
+});
+
+app.use(ErrController);
 
 module.exports = app;

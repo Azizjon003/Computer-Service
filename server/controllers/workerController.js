@@ -1,81 +1,80 @@
 const Worker = require("../models/workersModel");
-const Review = require("../models/reviewsModel");
+const ServiceType = require("../models/serviseTypesModel");
+const ReviewForWorkers = require("../models/reviewForWorkersModel");
+const User = require("../models/userModel");
+const catchErrAsync = require("../utility/catchErrAsync");
 
-const getAll = async (req, res) => {
-  try {
-    const worker = await Worker.findAll({
-      include: [
-        {
-          model: Review,
-        },
-      ],
-    });
+const getAll = catchErrAsync(async (req, res, next) => {
+  const worker = await Worker.findAll({
+    include: [
+      {
+        model: ServiceType,
+      },
+      {
+        model: ReviewForWorkers,
+        include: [
+          {
+            model: User,
+          },
+        ],
+      },
+    ],
+  });
 
-    res.status(200).json({
-      datas: worker.length,
-      data: worker,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+  res.status(200).json({
+    datas: worker.length,
+    data: worker,
+  });
+});
 
-const add = async (req, res) => {
-  try {
-    const worker = await Worker.create(req.body);
-    res.status(200).json({
-      data: worker,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+const add = catchErrAsync(async (req, res, next) => {
+  const worker = await Worker.create(req.body);
+  res.status(200).json({
+    data: worker,
+  });
+});
 
-const delete1 = async (req, res) => {
-  try {
-    await Worker.destroy({ where: { id: req.params.id } });
-    res.status(200).json({
-      data: "success",
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-const getOne = async (req, res) => {
-  try {
-    const worker = await Worker.findOne({
-      where: { id: req.params.id },
-      include: [
-        {
-          model: User,
-        },
-      ],
-    });
-    res.status(200).json({
-      data: worker,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+const delete1 = catchErrAsync(async (req, res, next) => {
+  await Worker.destroy({ where: { id: req.params.id } });
+  res.status(200).json({
+    data: "success",
+  });
+});
+const getOne = catchErrAsync(async (req, res, next) => {
+  const worker = await Worker.findOne({
+    where: { id: req.params.id },
+    include: [
+      {
+        model: ServiceType,
+      },
+      {
+        model: ReviewForWorkers,
+        include: [
+          {
+            model: User,
+          },
+        ],
+      },
+    ],
+  });
+  res.status(200).json({
+    data: worker,
+  });
+});
 
-const update = async (req, res) => {
-  try {
-    const worker = await Worker.findOne({
-      where: { id: req.params.id },
-    });
+const update = catchErrAsync(async (req, res, next) => {
+  const worker = await Worker.findOne({
+    where: { id: req.params.id },
+  });
 
-    worker.status = req.body.status || worker.status;
+  worker.status = req.body.status || worker.status;
 
-    const newWorker = await worker.save();
+  const newWorker = await worker.save();
 
-    res.status(200).json({
-      data: newWorker,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+  res.status(200).json({
+    data: newWorker,
+  });
+});
 
 module.exports = {
   add,

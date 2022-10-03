@@ -11,7 +11,10 @@ const ProductDetails = sequelize.define("productDetails", {
   colors: { type: Sequelize.ENUM, values: ["white", "black", "green"] },
   sizes: { type: Sequelize.ENUM, values: ["xl", "2xl", "3xl"] },
   condition: { type: DataTypes.STRING, allowNull: false },
-  images: { type: DataTypes.ARRAY, allowNull: false },
+  images: {
+    type: Sequelize.ARRAY(Sequelize.STRING),
+    allowNull: false,
+  },
 });
 
 module.exports = ProductDetails;
