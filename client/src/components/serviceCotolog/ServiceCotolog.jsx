@@ -140,40 +140,40 @@ const ServiceCotolog = () => {
 
   const brands = [
     {
-      brand: "Asus",
+      brand: "hp",
+    },
+    {
+      brand: "Dell",
+    },
+    {
+      brand: "Sony",
+    },
+    {
+      brand: "Toshiba",
+    },
+    {
+      brand: "Acer",
     },
     {
       brand: "Asus",
     },
     {
-      brand: "Asus",
+      brand: "Samsung",
     },
     {
-      brand: "Asus",
+      brand: "Apple",
     },
     {
-      brand: "Asus",
+      brand: "Msi",
     },
     {
-      brand: "Asus",
+      brand: "Lenovo",
     },
     {
-      brand: "Asus",
+      brand: "Fujitsu",
     },
     {
-      brand: "Asus",
-    },
-    {
-      brand: "Asus",
-    },
-    {
-      brand: "Asus",
-    },
-    {
-      brand: "Asus",
-    },
-    {
-      brand: "Asus",
+      brand: "Gateway",
     },
   ];
 
