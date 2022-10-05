@@ -40,32 +40,32 @@ export const categoryLink = [
                   {
                     //uchinchi oyna
                     nameLinkDepartment: "Замена разъема питания ноутбуков",
-                    link: "#",
+                    link: "/replace-power-connector-of-laptops",
                   },
-                  { nameLinkDepartment: "Чистка ноутбуков", link: "#" },
+                  { nameLinkDepartment: "Чистка ноутбуков", link: "/Cleaning-laptops" },
                   {
                     nameLinkDepartment: "Замена матрицы ноутбука",
-                    link: "#",
+                    link: "/Replacing-the-laptop-matrix",
                   },
                   {
                     nameLinkDepartment: "Замена клавиатуры ноутбука",
-                    link: "#",
+                    link: "/Laptop-keyboard-replacement",
                   },
                   {
                     nameLinkDepartment: "Замена аккумулятора ноутбука",
-                    link: "#",
+                    link: "/Replacing-the-laptop-battery",
                   },
                   {
                     nameLinkDepartment: "Замена USB разъема ноутбука",
-                    link: "#",
+                    link: "/Replacing-the-USB-connector-of a-laptop",
                   },
                   {
                     nameLinkDepartment: "Установка программ на ноутбук",
-                    link: "#",
+                    link: "/Installing-programs-on-a-laptop",
                   },
                   {
                     nameLinkDepartment: "Ремонт корпуса ноутбука",
-                    link: "#",
+                    link: "/Laptop-Case-Repair",
                   },
                 ],
               },
@@ -73,26 +73,27 @@ export const categoryLink = [
           },
           {
             nameLink: "Ремонт компьютеров",
-            nameLinkTo: "#",
+            nameLinkTo: "/Monoblock-repair",
             services: [
               {
                 servicesName: "Услуги",
                 servicesLink: [
-                  { nameLinkDepartment: "Сборка компьютеров", link: "#" },
-                  { nameLinkDepartment: "Чистка компьютеров", link: "#" },
-                  { nameLinkDepartment: "Настройка компьютеров", link: "#" },
+                  { nameLinkDepartment: "Сборка компьютеров", link: "/Computer-assembly" },
+                  { nameLinkDepartment: "Чистка компьютеров", link: "/Computer-cleaning" },
+                  { nameLinkDepartment: "Настройка компьютеров", link: "/Computer-setup" },
                 ],
               },
             ],
           },
           {
             nameLink: "Ремонт моноблоков",
-            nameLinkTo: "#",
+            nameLinkTo: "/Monoblock-repair",
             services: [
               {
                 servicesName: "Услуги",
                 servicesLink: [
-                  { nameLinkDepartment: "Замена матрицы моноблока", link: "#" },
+                  { nameLinkDepartment: "Замена матрицы моноблока", 
+                  link: "/Monoblock-Matrix-Replacement" },
                 ],
               },
             ],

@@ -234,18 +234,23 @@ export default function SidebarApp() {
                                     {category4.servicesLink.map(
                                       (category5, indexC5) => {
                                         return (
-                                          <ListItemButton
+                                        <Link to={category5.link}
+                                        style={{textDecoration: "none"}}
+                                        > <ListItemButton
+                                        onClick={toggleDrawer(anchor, false)}
                                             key={indexC5}
                                             sx={{
                                               borderRadius: 5,
                                               color: "rgb(0, 10, 0, 0.5)",
                                               ":hover": {
                                                 color: "blue",
+                                                
                                               },
                                             }}
                                           >
                                             {category5.nameLinkDepartment}
                                           </ListItemButton>
+                                          </Link> 
                                         );
                                       }
                                     )}

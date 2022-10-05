@@ -21,7 +21,7 @@ export default function Page1Card1() {
 
         <Typography
           sx={{
-            color: "blue",
+            color: "orange",
             fontWeight: "500",
           }}
           variant="h3"
@@ -42,7 +42,7 @@ export default function Page1Card1() {
           {categoty.map((item, i) => {
             return (
               <Card key={i} sx={{ width: 170, boxShadow: 0, background: 'none', display:'flex' }}>
-                <BuildIcon sx={{ color: "blue", fontSize: 20 }} />
+                <BuildIcon sx={{ color: "orange", fontSize: 20 }} />
                 <Typography sx={{ marginLeft: 5, fontWeight: "500", textAlign: 'left' }}>
                   {item}
                 </Typography>
@@ -52,14 +52,14 @@ export default function Page1Card1() {
         </Box>
         <Button
           sx={{
-            backgroundColor: "blue",
+            backgroundColor: "orange",
             borderRadius: "25px 0 ",
             padding: "20px 30px",
             fontSize: 20,
             color: "#fff",
             marginY: 4,
             ":hover": {
-              background: "blue",
+              background: "orange",
             },
           }}
         >Вызвать мастера
