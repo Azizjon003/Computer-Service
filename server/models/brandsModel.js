@@ -11,4 +11,6 @@ const Brands = sequelize.define("brands", {
   name: { type: DataTypes.STRING, allowNull: false },
 });
 
+Brands.sync({ alter: true });
+
 module.exports = Brands;

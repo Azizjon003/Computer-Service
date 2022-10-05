@@ -20,4 +20,6 @@ SubmitVacancy.belongsTo(User, { onDelete: "CASCADE" });
 Vacancy.hasMany(SubmitVacancy, { onDelete: "CASCADE" });
 SubmitVacancy.belongsTo(Vacancy, { onDelete: "CASCADE" });
 
+SubmitVacancy.sync({ alter: true });
+
 module.exports = SubmitVacancy;

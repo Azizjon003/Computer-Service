@@ -14,4 +14,6 @@ const Baskets = sequelize.define("baskets", {
   user_id: { type: DataTypes.STRING, allowNull: false }, //boshqa table
 });
 
+Baskets.sync({ alter: true });
+
 module.exports = Baskets;

@@ -22,6 +22,7 @@ const getAll = catchErrAsync(async (req, res, next) => {
   }); // required:true
 
   res.status(200).json({
+    dataLength: users.length,
     data: users,
   });
 });
@@ -42,9 +43,20 @@ const delete1 = catchErrAsync(async (req, res, next) => {
 const getOne = catchErrAsync(async (req, res, next) => {
   const user = await User.findOne({
     where: { id: req.params.id },
-    include: { model: Location },
+    include: [
+      {
+        model: SubmitVacancy,
+      },
+      {
+        model: ReviewForWorkers,
+      },
+      {
+        model: ReviewForServiceType,
+      },
+    ],
   });
   res.status(200).json({
+    dataLength: user.length,
     data: user,
   });
 });

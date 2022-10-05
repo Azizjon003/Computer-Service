@@ -13,4 +13,6 @@ const Sales = sequelize.define("sales", {
   end_date: { type: DataTypes.DATE, allowNull: false },
 });
 
+Sales.sync({ alter: true });
+
 module.exports = Sales;

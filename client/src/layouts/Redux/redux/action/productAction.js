@@ -27,3 +27,15 @@ export const countDecProduct = (value) => {
     payload: value,
   };
 };
+
+export const favoriteOpenProduct = (value) => {
+  return {
+    type: Actiontype.FAVORITE_OPEN_PRODUCT,
+  };
+};
+
+export const favoriteCloseProduct = (value) => {
+  return {
+    type: Actiontype.FAVORITE_CLOSE_PRODUCT,
+  };
+};
