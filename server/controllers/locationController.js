@@ -1,5 +1,6 @@
-const Location = require("../models/locationsModel");
-const User = require("../models/userModel");
+const db = require("../configs/db");
+const Location = db.locations;
+const User = db.users;
 
 const getAll = async (req, res) => {
   try {

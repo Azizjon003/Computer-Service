@@ -1,5 +1,6 @@
-const Vacancy = require("../models/vacancyModel");
-const VacancyCategory = require("../models/vacancyCategoryModel");
+const db = require("../configs/db");
+const Vacancy = db.vacancies;
+const VacancyCategory = db.vacancyCategories;
 
 const getAll = async (req, res) => {
   try {

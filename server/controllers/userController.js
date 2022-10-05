@@ -1,5 +1,9 @@
-const User = require("../models/userModel");
-const Location = require("../models/locationsModel");
+const db = require("../configs/db");
+
+const User = db.users;
+
+const Location = db.locations;
+const cli = require("cli-color");
 
 const getAll = async (req, res) => {
   try {
@@ -9,7 +13,7 @@ const getAll = async (req, res) => {
       data: users,
     });
   } catch (error) {
-    console.log(error.message);
+    console.log(cli.red(error.message));
   }
 };
 
@@ -20,7 +24,7 @@ const add = async (req, res) => {
       data: user,
     });
   } catch (error) {
-    console.log(error.message);
+    console.log(cli.redBright(error.message));
   }
 };
 
@@ -31,7 +35,7 @@ const delete1 = async (req, res) => {
       data: "success",
     });
   } catch (error) {
-    console.log(error.message);
+    console.log(cli.red(error.message));
   }
 };
 const getOne = async (req, res) => {

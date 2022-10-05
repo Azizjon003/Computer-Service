@@ -1,14 +1,21 @@
-const sequelize = require("../configs/db");
-
-const { DataTypes, Sequelize } = require("sequelize");
-
-const Brands = sequelize.define("brands", {
-  id: {
-    type: Sequelize.DataTypes.UUID,
-    defaultValue: Sequelize.DataTypes.UUIDV4,
-    primaryKey: true,
-  },
-  name: { type: DataTypes.STRING, allowNull: false },
-});
+const Brands = (sequelize, DataTypes) => {
+  const Brands = sequelize.define("brands", {
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        min: 3,
+        max: 20,
+      },
+    },
+  });
+  return Brands;
+};
 
 module.exports = Brands;

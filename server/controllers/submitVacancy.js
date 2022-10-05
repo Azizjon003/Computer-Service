@@ -1,8 +1,9 @@
-const SubmitVacancy = require("../models/submitVacancyModel");
+const db = require("../configs/db");
+const SubmitVacancy = db.submitVacancies;
 
-const User = require("../models/userModel");
-const Vacancy = require("../models/vacancyModel");
-const vacancyCategories = require("../models/vacancyCategoryModel");
+const User = db.users;
+const Vacancy = db.vacancies;
+const vacancyCategories = db.vacancyCategories;
 
 const getAll = async (req, res) => {
   try {
