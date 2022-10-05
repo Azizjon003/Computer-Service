@@ -16,7 +16,6 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { IMaskInput } from "react-imask";
 import "./styleAddress.css";
 
 const AddressModal = ({ handleCloseAdress }) => {
