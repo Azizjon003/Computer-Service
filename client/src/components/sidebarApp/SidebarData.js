@@ -5,19 +5,20 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт бытовой техники",
+        id: 11,
         nameCategory: [
           {
             //ikkinchi oyna
-            nameLink: "Ремонт микроволновок",
-            nameLinkTo: "#",
+            nameLink: "Ремонт пылесосов",
+            nameLinkTo: "/remont-plesasov",
           },
           {
             nameLink: "Ремонт микроволновок",
-            nameLinkTo: "#",
+            nameLinkTo: "/Ремонт-микроволновок",
           },
           {
             nameLink: "Ремонт кофемашин",
-            nameLinkTo: "#",
+            nameLinkTo: "/Ремонт-кофемашин",
           },
         ],
       },
@@ -26,11 +27,12 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт компьютерной техники",
+        id: 12,
         nameCategory: [
           {
             //ikkinchi oyna
             nameLink: "Ремонт ноутбуков",
-            nameLinkTo: "#",
+            nameLinkTo: "/remont-noutbuk",
             services: [
               {
                 servicesName: "Услуги",
@@ -38,32 +40,32 @@ export const categoryLink = [
                   {
                     //uchinchi oyna
                     nameLinkDepartment: "Замена разъема питания ноутбуков",
-                    link: "#",
+                    link: "/replace-power-connector-of-laptops",
                   },
-                  { nameLinkDepartment: "Чистка ноутбуков", link: "#" },
+                  { nameLinkDepartment: "Чистка ноутбуков", link: "/Cleaning-laptops" },
                   {
                     nameLinkDepartment: "Замена матрицы ноутбука",
-                    link: "#",
+                    link: "/Replacing-the-laptop-matrix",
                   },
                   {
                     nameLinkDepartment: "Замена клавиатуры ноутбука",
-                    link: "#",
+                    link: "/Laptop-keyboard-replacement",
                   },
                   {
                     nameLinkDepartment: "Замена аккумулятора ноутбука",
-                    link: "#",
+                    link: "/Replacing-the-laptop-battery",
                   },
                   {
                     nameLinkDepartment: "Замена USB разъема ноутбука",
-                    link: "#",
+                    link: "/Replacing-the-USB-connector-of a-laptop",
                   },
                   {
                     nameLinkDepartment: "Установка программ на ноутбук",
-                    link: "#",
+                    link: "/Installing-programs-on-a-laptop",
                   },
                   {
                     nameLinkDepartment: "Ремонт корпуса ноутбука",
-                    link: "#",
+                    link: "/Laptop-Case-Repair",
                   },
                 ],
               },
@@ -71,26 +73,27 @@ export const categoryLink = [
           },
           {
             nameLink: "Ремонт компьютеров",
-            nameLinkTo: "#",
+            nameLinkTo: "/Monoblock-repair",
             services: [
               {
                 servicesName: "Услуги",
                 servicesLink: [
-                  { nameLinkDepartment: "Сборка компьютеров", link: "#" },
-                  { nameLinkDepartment: "Чистка компьютеров", link: "#" },
-                  { nameLinkDepartment: "Настройка компьютеров", link: "#" },
+                  { nameLinkDepartment: "Сборка компьютеров", link: "/Computer-assembly" },
+                  { nameLinkDepartment: "Чистка компьютеров", link: "/Computer-cleaning" },
+                  { nameLinkDepartment: "Настройка компьютеров", link: "/Computer-setup" },
                 ],
               },
             ],
           },
           {
             nameLink: "Ремонт моноблоков",
-            nameLinkTo: "#",
+            nameLinkTo: "/Monoblock-repair",
             services: [
               {
                 servicesName: "Услуги",
                 servicesLink: [
-                  { nameLinkDepartment: "Замена матрицы моноблока", link: "#" },
+                  { nameLinkDepartment: "Замена матрицы моноблока", 
+                  link: "/Monoblock-Matrix-Replacement" },
                 ],
               },
             ],
@@ -101,6 +104,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт офисной техники",
+        id: 13,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -117,6 +121,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт крупно бытовой техники",
+        id: 14,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -283,6 +288,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт цифровой техники",
+        id: 15,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -323,6 +329,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт электротранспорта",
+        id: 16,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -335,6 +342,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт климатической техники",
+        id: 17,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -390,6 +398,7 @@ export const categoryLink = [
       {
         // birinchi oyna
         name: "Ремонт часов",
+        id: 18,
         nameCategory: [
           {
             //ikkinchi oyna
@@ -405,6 +414,7 @@ export const categoryLink = [
     categoryChap: [
       {
         name: "Казахстан",
+        id: 21,
         nameCategory: [
           { nameLink: "Алматы", nameLinkTo: "#" },
           { nameLink: "Астана", nameLinkTo: "#" },
@@ -427,6 +437,7 @@ export const categoryLink = [
 
             {
         name: "Россия",
+        id: 22,
         nameCategory: [
           { nameLink: "Москва", nameLinkTo: "#" },
           { nameLink: "Екатеринбург", nameLinkTo: "#" },
@@ -441,6 +452,7 @@ export const categoryLink = [
       },
             {
         name: "Украина",
+        id: 23,
         nameCategory: [
           { nameLink: "Киев", nameLinkTo: "#" },
           { nameLink: "Харьков", nameLinkTo: "#" },
@@ -453,6 +465,7 @@ export const categoryLink = [
       },
             {
         name: "Беларусь",
+        id: 24,
         nameCategory: [
             { nameLink: "Минск", nameLinkTo: "#" },
             { nameLink: "Гомель", nameLinkTo: "#" },
@@ -464,6 +477,7 @@ export const categoryLink = [
       },
             {
         name: "Кыргызстан",
+        id: 25,
         nameCategory: [
             { nameLink: "Бишкек", nameLinkTo: "#" },
             { nameLink: "Ош", nameLinkTo: "#" },
@@ -471,36 +485,46 @@ export const categoryLink = [
       },
             {
         name: "Узбекистан",
+        id: 26,
         nameCategory: [
           { nameLink: "Ташкент", nameLinkTo: "#" },
         ],
       },
             {
-        name: "О нас", 
+        name: "О нас",
+        id: 27,
         nameTo: '#',
       },
             {
-        name: "Команда", 
+        name: "Команда",
+        id: 28,
         nameTo: '#',
       },
             {
-        name: "Отзывы", 
+        name: "Отзывы",
+        
+        id: 29,
         nameTo: '#',
       },
             {
-        name: "Акции", 
+        name: "Акции",
+        
+        id: 30,
         nameTo: '#',
       },
             {
-        name: "B2B клиентам", 
+        name: "B2B клиентам",
+        id: 31,
         nameTo: '#',
       },
             {
-        name: "Вакансии", 
+        name: "Вакансии",
+        id: 32,
         nameTo: '#',
       },
             {
-        name: "Контроль качества", 
+        name: "Контроль качества",
+        id: 33,
         nameTo: '#',
       },
 

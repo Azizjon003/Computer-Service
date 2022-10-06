@@ -1,102 +1,90 @@
 const db = require("../configs/db");
 const SubmitVacancy = db.submitVacancies;
 
+<<<<<<< HEAD
 const User = db.users;
 const Vacancy = db.vacancies;
 const vacancyCategories = db.vacancyCategories;
+=======
+const User = require("../models/userModel");
+const Vacancy = require("../models/vacancyModel");
+const vacancyCategories = require("../models/vacancyCategoryModel");
+const catchErrAsync = require("../utility/catchErrAsync");
+>>>>>>> e424b262be26ea74cbdea8d4518623c95d8048ef
 
-const getAll = async (req, res) => {
-  try {
-    const submitVacancy = await SubmitVacancy.findAll({
-      include: [
-        {
-          model: User,
-        },
-        {
-          model: Vacancy,
-          include: [
-            {
-              model: vacancyCategories,
-            },
-          ],
-        },
-      ],
-    });
+const getAll = catchErrAsync(async (req, res, next) => {
+  const submitVacancy = await SubmitVacancy.findAll({
+    include: [
+      {
+        model: User,
+      },
+      {
+        model: Vacancy,
+        include: [
+          {
+            model: vacancyCategories,
+          },
+        ],
+      },
+    ],
+  });
 
-    res.status(200).json({
-      data: submitVacancy,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+  res.status(200).json({
+    data: submitVacancy,
+  });
+});
 
-const add = async (req, res) => {
-  try {
-    const submitVacancy = await SubmitVacancy.create(req.body);
-    res.status(200).json({
-      data: submitVacancy,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+const add = catchErrAsync(async (req, res, next) => {
+  const submitVacancy = await SubmitVacancy.create(req.body);
+  res.status(200).json({
+    data: submitVacancy,
+  });
+});
 
-const delete1 = async (req, res) => {
-  try {
-    await SubmitVacancy.destroy({ where: { id: req.params.id } });
-    res.status(200).json({
-      data: "success",
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-const getOne = async (req, res) => {
-  try {
-    const submitVacancy = await SubmitVacancy.findOne({
-      where: { id: req.params.id },
-      include: [
-        {
-          model: submitVacancy,
-        },
-        {
-          model: Vacancy,
-          include: [
-            {
-              model: vacancyCategories,
-            },
-          ],
-        },
-      ],
-    });
-    res.status(200).json({
-      data: submitVacancy,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-const update = async (req, res) => {
-  try {
-    const submitVacancy = await SubmitVacancy.findOne({
-      where: { id: req.params.id },
-    });
+const delete1 = catchErrAsync(async (req, res, next) => {
+  await SubmitVacancy.destroy({ where: { id: req.params.id } });
+  res.status(200).json({
+    data: "success",
+  });
+});
+const getOne = catchErrAsync(async (req, res, next) => {
+  const submitVacancy = await SubmitVacancy.findOne({
+    where: { id: req.params.id },
+    include: [
+      {
+        model: submitVacancy,
+      },
+      {
+        model: Vacancy,
+        include: [
+          {
+            model: vacancyCategories,
+          },
+        ],
+      },
+    ],
+  });
+  res.status(200).json({
+    data: submitVacancy,
+  });
+});
 
-    submitVacancy.status = req.body.status || submitVacancy.status;
-    submitVacancy.submitVacancyId =
-      req.body.submitVacancyId || submitVacancy.submitVacancyId;
-    submitVacancy.vacancyId = req.body.vacancyId || submitVacancy.vacancyId;
+const update = catchErrAsync(async (req, res, next) => {
+  const submitVacancy = await SubmitVacancy.findOne({
+    where: { id: req.params.id },
+  });
 
-    const newSubmitVacancy = await submitVacancy.save();
+  submitVacancy.status = req.body.status || submitVacancy.status;
+  submitVacancy.submitVacancyId =
+    req.body.submitVacancyId || submitVacancy.submitVacancyId;
+  submitVacancy.vacancyId = req.body.vacancyId || submitVacancy.vacancyId;
 
-    res.status(200).json({
-      data: newSubmitVacancy,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+  const newSubmitVacancy = await submitVacancy.save();
+
+  res.status(200).json({
+    data: newSubmitVacancy,
+  });
+});
 
 module.exports = {
   add,

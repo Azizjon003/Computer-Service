@@ -1,19 +1,10 @@
 import React from "react";
-// @mui
-import { styled } from "@mui/material/styles";
-import Header from "../Header";
-import Footer from "../Footer";
-
-const Main = styled("h1")(({ theme }) => ({
-  color: theme.palette.primary.main,
-}));
+import Shopp from "../Redux/index";
 
 const MainLayout = () => {
   return (
     <>
-      <Header />
-      <Main>Main Layout</Main>
-      <Footer />
+      <Shopp />
     </>
   );
 };

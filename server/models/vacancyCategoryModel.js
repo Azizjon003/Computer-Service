@@ -10,4 +10,6 @@ const VacancyCategory = (sequelize, DataTypes) => {
   return VacancyCategory;
 };
 
+VacancyCategory.sync({ alter: true });
+
 module.exports = VacancyCategory;

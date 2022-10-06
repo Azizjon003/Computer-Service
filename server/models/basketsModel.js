@@ -14,4 +14,6 @@ const Baskets = (sequelize, DataTypes) => {
   return Baskets;
 };
 
+Baskets.sync({ alter: true });
+
 module.exports = Baskets;

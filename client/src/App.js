@@ -2,20 +2,22 @@ import React from "react";
 import Route from "./routes";
 import HeaderApp from "./components/headerApp/HeaderApp";
 import NavbarApp from "./components/headerApp/NavbarApp";
-import SidebarApp from "./components/sidebarApp/SidebarApp";
-import { categoryLink } from "./components/sidebarApp/SidebarData";
 import ThemeProvider from "./themes";
-import ServiceCotolog from "./components/serviceCotolog/ServiceCotolog";
-// console.log(categoryLink);
+import Footer from "./components/footer/Footer";
+import Pages from "./components/pages/Pages";
+import Location from "./components/pages/catalog1/page2/Location/Location";
+
 const App = () => {
   return (
     <ThemeProvider>
-      <HeaderApp />
+      {/* <HeaderApp /> */}
       <NavbarApp />
+      <Pages />
       <Route />
-      <ServiceCotolog />
+      {/* <ServiceCotolog /> */}
+      <Location />
+      <Footer />
     </ThemeProvider>
-    // <h1></h1>
   );
 };
 

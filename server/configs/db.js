@@ -40,6 +40,7 @@ db.vacancyCategories = require("../models/vacancyCategoryModel")(
   DataTypes
 );
 
+<<<<<<< HEAD
 db.vacancies = require("../models/vacancyModel")(sequelize, DataTypes);
 db.worker = require("../models/workersModel")(sequelize, DataTypes);
 
@@ -66,3 +67,8 @@ db.sequelize
     console.log(cli.red(err.message));
   });
 module.exports = db;
+=======
+// sequelize.sync({ alter: true, force: true });
+
+module.exports = sequelize;
+>>>>>>> e424b262be26ea74cbdea8d4518623c95d8048ef

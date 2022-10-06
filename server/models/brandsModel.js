@@ -18,4 +18,6 @@ const Brands = (sequelize, DataTypes) => {
   return Brands;
 };
 
+Brands.sync({ alter: true });
+
 module.exports = Brands;

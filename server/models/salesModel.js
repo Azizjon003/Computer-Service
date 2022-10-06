@@ -12,4 +12,6 @@ const Sales = (sequelize, DataTypes) => {
   return Sales;
 };
 
+Sales.sync({ alter: true });
+
 module.exports = Sales;
