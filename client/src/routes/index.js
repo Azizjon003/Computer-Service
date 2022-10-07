@@ -10,6 +10,7 @@ import Vacancy from "../components/Vacancy/Vacancy";
 import Vacancyid from "../components/Vacancy/VacancyId/Vacancyid";
 import ProductDetails from "../layouts/Redux/containers/ProductDetails/ProductDetails";
 import { element } from "prop-types";
+import Error from "../components/Error/Error";
 const Loadable = (Component) => (props) =>
   (
     <Suspense fallback={<LoadingScreen isDashboard={false} />}>
@@ -50,8 +51,9 @@ export default function Goo() {
     {
       path: "/product/12",
       element: <ProductDetails />,
-      // children: [{ element: <ProductDetails />, path: "/12" }],
+      // children: [{ element: <ProductDetails />, path: "/12" }],iii
     },
     // { path: "*", element: <Navigate to="/404" replace /> },
+    { path: "/*", element: <Error /> },
   ]);
 }
